@@ -1,0 +1,15 @@
+D:\bkc-backend\bkc-backend.Services\bin\Debug\net5.0\bkc-backend.Services.deps.json
+D:\bkc-backend\bkc-backend.Services\bin\Debug\net5.0\bkc-backend.Services.dll
+D:\bkc-backend\bkc-backend.Services\bin\Debug\net5.0\ref\bkc-backend.Services.dll
+D:\bkc-backend\bkc-backend.Services\bin\Debug\net5.0\bkc-backend.Services.pdb
+D:\bkc-backend\bkc-backend.Services\bin\Debug\net5.0\bkc-backend.Data.dll
+D:\bkc-backend\bkc-backend.Services\bin\Debug\net5.0\bkc-backend.Data.pdb
+D:\bkc-backend\bkc-backend.Services\obj\Debug\net5.0\bkc-backend.Services.csprojAssemblyReference.cache
+D:\bkc-backend\bkc-backend.Services\obj\Debug\net5.0\bkc-backend.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\bkc-backend\bkc-backend.Services\obj\Debug\net5.0\bkc-backend.Services.AssemblyInfoInputs.cache
+D:\bkc-backend\bkc-backend.Services\obj\Debug\net5.0\bkc-backend.Services.AssemblyInfo.cs
+D:\bkc-backend\bkc-backend.Services\obj\Debug\net5.0\bkc-backend.Services.csproj.CoreCompileInputs.cache
+D:\bkc-backend\bkc-backend.Services\obj\Debug\net5.0\bkc-backend.Services.csproj.CopyComplete
+D:\bkc-backend\bkc-backend.Services\obj\Debug\net5.0\bkc-backend.Services.dll
+D:\bkc-backend\bkc-backend.Services\obj\Debug\net5.0\ref\bkc-backend.Services.dll
+D:\bkc-backend\bkc-backend.Services\obj\Debug\net5.0\bkc-backend.Services.pdb
