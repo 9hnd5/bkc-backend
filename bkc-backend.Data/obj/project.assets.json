@@ -5797,19 +5797,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HuyNguyen\\.nuget\\packages\\": {}
+    "C:\\Users\\huy.ndinh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj",
+      "projectUniqueName": "D:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj",
       "projectName": "bkc-backend.Data",
-      "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj",
-      "packagesPath": "C:\\Users\\HuyNguyen\\.nuget\\packages\\",
-      "outputPath": "F:\\Project\\bkc-backend\\bkc-backend.Data\\obj\\",
+      "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj",
+      "packagesPath": "C:\\Users\\huy.ndinh\\.nuget\\packages\\",
+      "outputPath": "D:\\Project\\bkc-backend\\bkc-backend.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\HuyNguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\huy.ndinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

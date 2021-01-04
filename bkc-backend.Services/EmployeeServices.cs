@@ -11,6 +11,7 @@ namespace bkc_backend.Services.EmployeeServices
     {
         public List<Employee> GetAllEmployee();
         public Employee GetEmployeeByEmail(string email);
+        public List<Employee> GetEmployeeByFilterKeyEmail(string filterKeyEmail);
     }
     public class EmployeeServices : IEmployeeServices
     {
@@ -78,6 +79,46 @@ namespace bkc_backend.Services.EmployeeServices
                 }
                 catch (Exception err)
                 {
+                    return null;
+                    throw (err);
+                }
+            }
+        }
+
+        public List<Employee> GetEmployeeByFilterKeyEmail(string filterKeyEmail)
+        {
+            string connectionString = _config["ConnectionString"];
+            string queryString = "select EMPLOYEE_ID, EMPLOYEE_FULL_NAME, MOBILE_NUMBER, DEPARTMENT," +
+                "BUID, BUSINESS_UNIT, WORKING_EMAIL FROM dbo.TSEmployee where WORKING_EMAIL like '%" + filterKeyEmail + "%'";
+            List<Employee> employees = new List<Employee>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                //command.Parameters.AddWithValue("@filterKeyEmail", filterKeyEmail);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        employees.Add(new Employee()
+                        {
+                            Id = (string)reader[0],
+                            Name = (string)reader[1],
+                            Phone = (string)reader[2],
+                            Department = (string)reader[3],
+                            BuId = (string)reader[4],
+                            BuName = (string)reader[5],
+                            Email = (string)reader[6]
+                        });
+                    }
+                    reader.Close();
+                    if (employees.Count == 0) return null;
+                    return employees;
+                }
+                catch (Exception err)
+                {
+                    return null;
                     throw (err);
                 }
             }

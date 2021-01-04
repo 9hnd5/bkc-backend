@@ -3,6 +3,7 @@ using bkc_backend.Controller.Model;
 using bkc_backend.Data;
 using bkc_backend.Data.Entities;
 using bkc_backend.Services;
+using bkc_backend.Services.EmployeeServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,10 +22,11 @@ namespace bkc_backend.Controller.Controllers
         public IBookingInforServices _bookingInforServices;
         public IBookingDetailServices _bookingDetailServices;
         public ICarServices _carServices;
+        public IEmployeeServices _employeeServices;
         public BkcController(BkcDbContext context, IBookerServices bookerServices
             , IDriverCarServices driverCarServices, IBookingInforServices bookingInforServices,
             IBookingDetailServices bookingDetailServices,
-            ICarServices carServices)
+            ICarServices carServices, IEmployeeServices employeeServices)
         {
             _context = context;
             _driverCarServices = driverCarServices;
@@ -32,12 +34,13 @@ namespace bkc_backend.Controller.Controllers
             _bookingInforServices = bookingInforServices;
             _bookingDetailServices = bookingDetailServices;
             _carServices = carServices;
+            _employeeServices = employeeServices;
         }
         [Route("api/bkc/approve")]
         [HttpPost]
         public IActionResult SaveBookingCarRequest([FromBody] BookingCarReqModel request)
         {
-            if (!ModelState.IsValid) return BadRequest("Nhap Thong Tin Sai");
+            if (!ModelState.IsValid) return BadRequest("Sai Dinh Dang");
             Guid bookerId = Guid.NewGuid();
             Guid bookingInforId = Guid.NewGuid();
             Booker booker = new Booker()
@@ -88,7 +91,7 @@ namespace bkc_backend.Controller.Controllers
         [HttpPost]
         public IActionResult SaveDeclineBookingCarRequest([FromBody] DeclineBkcModel request)
         {
-            if (!ModelState.IsValid) return BadRequest("Sai Thong Tin Decline");
+            if (!ModelState.IsValid) return BadRequest();
             var booker = _bookerServices.getById(request.BookerId);
             booker.Status = "Decline";
             _context.SaveChanges();
@@ -152,6 +155,14 @@ namespace bkc_backend.Controller.Controllers
             //infor.Status = "true";
             _context.SaveChanges();
             return Ok("Save Car Success");
+        }
+        [Route("/api/bkc/search/{key}")]
+        [HttpGet]
+        public IActionResult getEmployeeByFilterKeyEmail(string key)
+        {
+            var employees = _employeeServices.GetEmployeeByFilterKeyEmail(key);
+            if (employees == null) return BadRequest("Khong Tim Duoc Employee voi email: " + key);
+            return Ok(employees);
         }
     }
 
