@@ -2,7 +2,7 @@
 
 namespace bkc_backend.Data.Migrations
 {
-    public partial class initialDB : Migration
+    public partial class InitialDB1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,27 +27,6 @@ namespace bkc_backend.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BkcBookingDetail",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    BookerId = table.Column<int>(type: "int", nullable: false),
-                    PickupLocation = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PickupTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeeId = table.Column<int>(type: "int", nullable: false),
-                    EmployeeName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GuestName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone = table.Column<int>(type: "int", nullable: false),
-                    NoteByBooker = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    NoteByAdmin = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BkcBookingDetail", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "BkcBookingInfor",
                 columns: table => new
                 {
@@ -64,6 +43,27 @@ namespace bkc_backend.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BkcBookingInfor", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BkcBookingPickupLocation",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookerId = table.Column<int>(type: "int", nullable: false),
+                    PickupLocation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PickupTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    EmployeeName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GuestName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Phone = table.Column<int>(type: "int", nullable: false),
+                    NoteByBooker = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NoteByAdmin = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BkcBookingPickupLocation", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -206,10 +206,10 @@ namespace bkc_backend.Data.Migrations
                 name: "BkcBooker");
 
             migrationBuilder.DropTable(
-                name: "BkcBookingDetail");
+                name: "BkcBookingInfor");
 
             migrationBuilder.DropTable(
-                name: "BkcBookingInfor");
+                name: "BkcBookingPickupLocation");
 
             migrationBuilder.DropTable(
                 name: "BkcCar");

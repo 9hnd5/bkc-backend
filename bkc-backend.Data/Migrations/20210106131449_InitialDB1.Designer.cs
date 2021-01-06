@@ -9,8 +9,8 @@ using bkc_backend.Data;
 namespace bkc_backend.Data.Migrations
 {
     [DbContext(typeof(BkcDbContext))]
-    [Migration("20210106100540_initialDB")]
-    partial class initialDB
+    [Migration("20210106131449_InitialDB1")]
+    partial class InitialDB1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -125,7 +125,7 @@ namespace bkc_backend.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BkcBookingDetail");
+                    b.ToTable("BkcBookingPickupLocation");
                 });
 
             modelBuilder.Entity("bkc_backend.Data.Entities.Car", b =>
