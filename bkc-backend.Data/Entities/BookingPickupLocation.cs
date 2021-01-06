@@ -4,16 +4,18 @@ using System.Text;
 
 namespace bkc_backend.Data.Entities
 {
-    public class BookingDetail
+    public class BookingPickupLocation
     {
-        public string Id { get; set; }
-        public string BookerId { get; set; }
+        public int Id { get; set; }
+        public int BookerId { get; set; }
         public string PickupLocation { get; set; }
         public string PickupTime { get; set; }
+        public int EmployeeId { get; set; }
         public string EmployeeName { get; set; }
         public string GuestName { get; set; }
-        public string Phone { get; set; }
-        public string Note { get; set; }
+        public int Phone { get; set; }
+        public string NoteByBooker { get; set; }
+        public string NoteByAdmin { get; set; }
 
     }
 }

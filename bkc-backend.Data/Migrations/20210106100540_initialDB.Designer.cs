@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bkc_backend.Data;
 
 namespace bkc_backend.Data.Migrations
 {
     [DbContext(typeof(BkcDbContext))]
-    partial class BkcDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210106100540_initialDB")]
+    partial class initialDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -123,7 +125,7 @@ namespace bkc_backend.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BkcBookingPickupLocation");
+                    b.ToTable("BkcBookingDetail");
                 });
 
             modelBuilder.Entity("bkc_backend.Data.Entities.Car", b =>

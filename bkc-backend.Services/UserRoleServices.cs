@@ -9,17 +9,17 @@ namespace bkc_backend.Services
 {
     public interface IUserRoleServices
     {
-        public UserRole GetUserRoleByUserId(string userId);
+        public RoleUser GetUserRoleByUserId(int userId);
     }
-    public class UserRoleServices : BaseServices<UserRole>, IUserRoleServices
+    public class UserRoleServices : BaseServices<RoleUser>, IUserRoleServices
     {
         public UserRoleServices(BkcDbContext context): base(context)
         {
 
         }
-        public UserRole GetUserRoleByUserId(string userId)
+        public RoleUser GetUserRoleByUserId(int userId)
         {
-            var result = (from usr in _context.UserRoles where usr.EmployeeId == userId select usr).FirstOrDefault();
+            var result = (from usr in _context.RoleUsers where usr.EmployeeId == userId select usr).FirstOrDefault();
             return result;
         }
     }

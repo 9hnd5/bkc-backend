@@ -10,6 +10,6 @@ namespace bkc_backend.Data.Entities
     {
         public Booker booker { get; set; }
         public BookingInfor bookingInfor { get; set; }
-        public List<BookingDetail> bookingDetails { get; set; }
+        public List<BookingPickupLocation> bookingDetails { get; set; }
     }
 }

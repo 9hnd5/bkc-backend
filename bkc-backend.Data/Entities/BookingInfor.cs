@@ -6,12 +6,13 @@ namespace bkc_backend.Data.Entities
 {
     public class BookingInfor
     {
-        public string Id { get; set; }
-        public string BookerId { get; set; }
-        public string PickupTime { get; set; }
-        public string ReturnTime { get; set; }
+        public int Id { get; set; }
+        public int BookerId { get; set; }
+        public string MoveDate { get; set; }
+        public string ReturnDate { get; set; }
         public string Location { get; set; }
         public string Destination { get; set; }
-        public string TotalPerson { get; set; }
+        public int TotalPerson { get; set; }
+        public string ReasonBooking { get; set; }
     }
 }

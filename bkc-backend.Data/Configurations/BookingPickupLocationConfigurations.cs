@@ -7,19 +7,21 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace bkc_backend.Data.Configurations
 {
-    public class BookingDetailConfigurations : IEntityTypeConfiguration<BookingDetail>
+    public class BookingPickupLocationConfigurations : IEntityTypeConfiguration<BookingPickupLocation>
     {
-        public void Configure(EntityTypeBuilder<BookingDetail> builder)
+        public void Configure(EntityTypeBuilder<BookingPickupLocation> builder)
         {
-            builder.ToTable("BkcBookingDetail");
+            builder.ToTable("BkcBookingPickupLocation");
             builder.HasKey(d => d.Id);
             builder.Property<string>(d => d.PickupLocation);
             builder.Property<string>(d => d.PickupTime);
+            builder.Property<int>(d => d.EmployeeId);
             builder.Property<string>(d => d.EmployeeName);
             builder.Property<string>(d => d.GuestName);
-            builder.Property<string>(d => d.Phone);
-            builder.Property<string>(d => d.Note);
-            builder.Property<string>(d => d.BookerId);
+            builder.Property<int>(d => d.Phone);
+            builder.Property<string>(d => d.NoteByBooker);
+            builder.Property<string>(d => d.NoteByAdmin);
+            builder.Property<int>(d => d.BookerId);
         }
     }
 }

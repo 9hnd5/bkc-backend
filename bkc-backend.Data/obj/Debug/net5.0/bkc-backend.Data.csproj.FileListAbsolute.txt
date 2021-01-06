@@ -34,7 +34,6 @@ D:\Project\bkc-backend\bkc-backend.Data\bin\Debug\net5.0\bkc-backend.Data.runtim
 D:\Project\bkc-backend\bkc-backend.Data\bin\Debug\net5.0\bkc-backend.Data.dll
 D:\Project\bkc-backend\bkc-backend.Data\bin\Debug\net5.0\ref\bkc-backend.Data.dll
 D:\Project\bkc-backend\bkc-backend.Data\bin\Debug\net5.0\bkc-backend.Data.pdb
-D:\Project\bkc-backend\bkc-backend.Data\obj\Debug\net5.0\bkc-backend.Data.csprojAssemblyReference.cache
 D:\Project\bkc-backend\bkc-backend.Data\obj\Debug\net5.0\bkc-backend.Data.GeneratedMSBuildEditorConfig.editorconfig
 D:\Project\bkc-backend\bkc-backend.Data\obj\Debug\net5.0\bkc-backend.Data.AssemblyInfoInputs.cache
 D:\Project\bkc-backend\bkc-backend.Data\obj\Debug\net5.0\bkc-backend.Data.AssemblyInfo.cs

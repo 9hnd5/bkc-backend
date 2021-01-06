@@ -8,41 +8,32 @@ namespace bkc_backend.Controller.Model
 {
     public class BookingCarReqModel
     {
-        [Required]
-        [StringLength(50)]
-        public string EmployeeId { get; set; }
-        [Required]
-        [StringLength(30)]
+     
+        public int EmployeeId { get; set; }
+      
         public string EmployeeName { get; set; }
-        [Required]
-        [StringLength(15)]
-        public string Phone { get; set; }
-        [Required]
-        [StringLength(50)]
+        public int LineManagerId { get; set; }
+        public string LineManagerName { get; set; }
+      
+        public int Phone { get; set; }
+        
         public string BuId { get; set; }
-        [Required]
-        [StringLength(50)]
+        
         public string BuName { get; set; }
-        [Required]
-        [StringLength(50)]
+        
         public string Department { get; set; }
-        [Required]
-        [StringLength(10)]
-        public string Status { get; set; }
+       
+    
 
 
-        public string BookerId { get; set; }
-        [Required]
+        public int BookerId { get; set; }
         public string PickupTime { get; set; }
-        [Required]
         public string ReturnTime { get; set; }
-        [Required]
         public string Location { get; set; }
-        [Required]
         public string Destination { get; set; }
-        [Required]
-        public string TotalPerson { get; set; }
+        public int TotalPerson { get; set; }
+        public List<string> MailToRelatingPersons { get; set; }
 
-        public List<BookingDetailRequest> BookingDetailRequests { get; set; }
+        public List<BookingPickupLocationModel> BookingPickupLocations { get; set; }
     }
 }

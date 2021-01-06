@@ -18,17 +18,19 @@ namespace bkc_backend.Data
             builder.ApplyConfiguration(new BookingInforConfigurations());
             builder.ApplyConfiguration(new CarConfigurations());
             builder.ApplyConfiguration(new DriverConfigurations());
-            builder.ApplyConfiguration(new BookingDetailConfigurations());
+            builder.ApplyConfiguration(new BookingPickupLocationConfigurations());
             builder.ApplyConfiguration(new RoleConfigurations());
-            builder.ApplyConfiguration(new UserRoleConfigurations());
+            builder.ApplyConfiguration(new RoleUserConfigurations());
             builder.ApplyConfiguration(new BookerConfigurations());
+            builder.ApplyConfiguration(new TripConfigurations());
         }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Driver> Drivers { get; set; }
         public DbSet<Booker> Bookers { get; set; }
-        public DbSet<BookingDetail> BookingDetails { get; set; }
+        public DbSet<BookingPickupLocation> BookingPickupLocations { get; set; }
         public DbSet<Role> Roles { get; set; }
-        public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<RoleUser> RoleUsers { get; set; }
         public DbSet<BookingInfor> BookingInfors { get; set; }
+        public DbSet<Trip> Trips { get; set; }
     }
 }

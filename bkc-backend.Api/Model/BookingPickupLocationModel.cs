@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bkc_backend.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,18 +7,16 @@ using System.Threading.Tasks;
 
 namespace bkc_backend.Controller.Model
 {
-    public class BookingDetailRequest
+    public class BookingPickupLocationModel
     {
-        public string BookerId { get; set; }
-        [Required]
+        public int BookerId { get; set; }
         public string PickupLocation { get; set; }
-        [Required]
         public string PickupTime { get; set; }
-        [Required]
+        public int EmployeeId { get; set; }
         public string EmployeeName { get; set; }
         public string GuestName { get; set; }
-        [Required]
-        public string Phone { get; set; }
-        public string Note { get; set; }
+        public int Phone { get; set; }
+        public string NoteByBooker { get; set; }
+        public string NoteByAdmin { get; set; }
     }
 }

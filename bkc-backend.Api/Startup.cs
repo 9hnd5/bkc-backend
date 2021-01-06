@@ -59,6 +59,7 @@ namespace bkc_backend.Api
             services.AddScoped<IBookingInforServices, BookingInforServices>();
             services.AddScoped<IDriverCarServices, DriverCarServices>();
             services.AddScoped<ICarServices, CarServices>();
+            services.AddScoped<ITripServices, TripServices>();
             var key = Encoding.UTF8.GetBytes(Configuration["Key"]);
             services.AddAuthentication(x =>
             {

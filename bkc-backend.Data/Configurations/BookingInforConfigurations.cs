@@ -13,12 +13,13 @@ namespace bkc_backend.Data.Configurations
         {
             builder.ToTable("BkcBookingInfor");
             builder.HasKey(i => i.Id);
-            builder.Property<string>(i => i.PickupTime);
-            builder.Property<string>(i => i.ReturnTime);
+            builder.Property<string>(i => i.MoveDate);
+            builder.Property<string>(i => i.ReturnDate);
             builder.Property<string>(i => i.Location);
             builder.Property<string>(i => i.Destination);
-            builder.Property<string>(i => i.TotalPerson);
-            builder.Property<string>(i => i.BookerId);
+            builder.Property<int>(i => i.TotalPerson);
+            builder.Property<int>(i => i.BookerId);
+            builder.Property<string>(i => i.ReasonBooking);
             
         }
     }

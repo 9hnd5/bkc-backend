@@ -23,10 +23,12 @@ namespace bkc_backend.Controller.Controllers
         public IBookingDetailServices _bookingDetailServices;
         public ICarServices _carServices;
         public IEmployeeServices _employeeServices;
+        public ITripServices _tripservices;
         public BkcController(BkcDbContext context, IBookerServices bookerServices
             , IDriverCarServices driverCarServices, IBookingInforServices bookingInforServices,
             IBookingDetailServices bookingDetailServices,
-            ICarServices carServices, IEmployeeServices employeeServices)
+            ICarServices carServices, IEmployeeServices employeeServices,
+            ITripServices tripServices)
         {
             _context = context;
             _driverCarServices = driverCarServices;
@@ -35,45 +37,47 @@ namespace bkc_backend.Controller.Controllers
             _bookingDetailServices = bookingDetailServices;
             _carServices = carServices;
             _employeeServices = employeeServices;
+            _tripservices = tripServices;
         }
-        [Route("api/bkc/approve")]
+        [Route("api/bkc/bookers")]
         [HttpPost]
         public IActionResult SaveBookingCarRequest([FromBody] BookingCarReqModel request)
         {
             if (!ModelState.IsValid) return BadRequest("Sai Dinh Dang");
-            Guid bookerId = Guid.NewGuid();
-            Guid bookingInforId = Guid.NewGuid();
+            Random rnd = new Random();
+            int bookerId = rnd.Next(100);
+            int bookingInforId = rnd.Next(200);
             Booker booker = new Booker()
             {
-                Id = bookerId.ToString(),
+                Id = bookerId,
                 EmployeeName = request.EmployeeName,
                 EmployeeId = request.EmployeeId,
                 Phone = request.Phone,
                 BuId = request.BuId,
                 BuName = request.BuName,
                 Department = request.Department,
-                Status = request.Status
             };
             BookingInfor bookingInfor = new BookingInfor()
             {
-                Id = bookingInforId.ToString(),
-                BookerId = bookerId.ToString(),
+                Id = bookingInforId,
+                BookerId = bookerId,
                 Destination = request.Destination,
                 Location = request.Location,
-                PickupTime = request.PickupTime,
-                ReturnTime = request.ReturnTime,
+                MoveDate = request.PickupTime,
+                ReturnDate = request.ReturnTime,
                 TotalPerson = request.TotalPerson
             };
-            foreach (var item in request.BookingDetailRequests)
+            foreach (var item in request.BookingPickupLocations)
             {
-                Guid bookingDetailId = Guid.NewGuid();
-                BookingDetail bookingDetail = new BookingDetail()
+                int id = rnd.Next(300);
+                BookingPickupLocation bookingDetail = new BookingPickupLocation()
                 {
-                    Id = bookingDetailId.ToString(),
-                    BookerId = bookerId.ToString(),
+                    Id = id,
+                    BookerId = bookerId,
                     EmployeeName = item.EmployeeName,
+                    EmployeeId = item.EmployeeId,
                     GuestName = item.GuestName,
-                    Note = item.Note,
+                    NoteByBooker = item.NoteByBooker,
                     Phone = item.Phone,
                     PickupLocation = item.PickupLocation,
                     PickupTime = item.PickupTime
@@ -87,15 +91,14 @@ namespace bkc_backend.Controller.Controllers
             return Ok("Success");
         }
         
-        [Route("api/bkc/decline")]
+        [Route("api/bkc/reject")]
         [HttpPost]
-        public IActionResult SaveDeclineBookingCarRequest([FromBody] DeclineBkcModel request)
+        public IActionResult SaveDeclineBookingCarRequest([FromBody] RejectBkcModel request)
         {
-            if (!ModelState.IsValid) return BadRequest();
+            if (!ModelState.IsValid) return BadRequest("Xin nhập lý do từ chối");
             var booker = _bookerServices.getById(request.BookerId);
-            booker.Status = "Decline";
             _context.SaveChanges();
-            return Ok("Decline Success");
+            return Ok("Từ Chối Thành Công");
         }
         
         
@@ -118,7 +121,7 @@ namespace bkc_backend.Controller.Controllers
             foreach (var booker in bookers)
             {
                 BookingInfor bookingInfor = _bookingInforServices.getBkInforByBookerId(booker.Id);
-                List<BookingDetail> bookingDetails = _bookingDetailServices.getBkDetailsByBookerId(booker.Id);
+                List<BookingPickupLocation> bookingDetails = _bookingDetailServices.getBkDetailsByBookerId(booker.Id);
                 if(bookingDetails == null)
                 {
                     return BadRequest("Not have booking detail with current booker");
@@ -134,27 +137,37 @@ namespace bkc_backend.Controller.Controllers
             var driverCars = _driverCarServices.getByBuId(buId);
             return new OkObjectResult(new { driverCars });
         }
-        [Route("/api/bkc/approvebkc")]
+        [Route("/api/bkc/approve")]
         [HttpPost]
         public IActionResult approveBkc([FromBody] CarRequest carReq)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Sai Định Dạng");
+            }
             Car car = _carServices.getById(carReq.CarId);
             Booker booker = _bookerServices.getById(carReq.BookerId);
             BookingInfor bookingInfor = _bookingInforServices.getBkInforByBookerId(carReq.BookerId);
-            var availableSeat = Convert.ToInt32(car.TotalSeat) - Convert.ToInt32(bookingInfor.TotalPerson);
-            car.BookingDate = carReq.BookingDate;
+            var availableSeat = Convert.ToInt32(car.AvailableSeat) - Convert.ToInt32(bookingInfor.TotalPerson);
             car.Status = "Booked";
-            car.BookerId = carReq.BookerId;
-            car.AvailableSeat = availableSeat.ToString();
-            booker.Status = "Success";
-            //Infor infor = _context.Infors.Find(carReq.InforId);
-            //if (car == null || infor == null) return BadRequest();
-            //car.BookingDate = carReq.BookingDate;
-            //car.Status = "Booked";
-            //car.BookingInforId = carReq.InforId;
-            //infor.Status = "true";
+            car.AvailableSeat = availableSeat;
+
+            int tripId = new Random().Next(400);
+            Trip trip = new Trip()
+            {
+                Id = tripId,
+                CarId = carReq.CarId,
+                DriverId = carReq.DriverId,
+                DriverName = carReq.DriverName,
+                MoveDate = carReq.MoveDate,
+                ReturnDate = carReq.ReturnDate,
+                NoteByAdmin = carReq.NoteByAdmin,
+                BookerId=carReq.BookerId,
+                BookerName = carReq.BookerName
+            };
+            _tripservices.insert(trip);
             _context.SaveChanges();
-            return Ok("Save Car Success");
+            return Ok("Duyệt Yêu Cầu Thành Công");
         }
         [Route("/api/bkc/search/{key}")]
         [HttpGet]

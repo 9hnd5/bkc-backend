@@ -14,7 +14,7 @@ namespace bkc_backend.Data
             var optionsBuilder = new DbContextOptionsBuilder<BkcDbContext>();
             //optionsBuilder.UseSqlServer(_configuration["ConnectionString"]);
             //optionsBuilder.UseSqlServer("Server=.; Database=HRAD; Trusted_Connection=True;");
-            optionsBuilder.UseSqlServer("Server=.; Database=HRAD; User id=sa; password=123456");
+            optionsBuilder.UseSqlServer("Server=192.168.170.82; Database=HRAD; User id=sa; password=gf40@2018");
             return new BkcDbContext(optionsBuilder.Options);
         }
     }

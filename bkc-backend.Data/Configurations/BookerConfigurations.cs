@@ -15,13 +15,14 @@ namespace bkc_backend.Data.Configurations
         {
             builder.ToTable("BkcBooker");
             builder.HasKey(b => b.Id);
-            builder.Property<string>(b => b.Phone);
-            builder.Property<string>(b => b.Status);
-            builder.Property<string>(b => b.EmployeeId);
+            builder.Property<int>(b => b.Phone);
+            builder.Property<int>(b => b.EmployeeId);
             builder.Property<string>(b => b.EmployeeName);
             builder.Property<string>(b => b.Department);
             builder.Property<string>(b => b.BuName);
             builder.Property<string>(b => b.BuId);
+            builder.Property<string>(b => b.LineManagerName);
+            builder.Property<int>(b => b.LineManagerId);
             
         }
     }

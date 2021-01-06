@@ -14,7 +14,7 @@ namespace bkc_backend.Data.Configurations
             builder.ToTable("BkcRole");
             builder.HasKey(r => r.Id);
             builder.Property<string>(r => r.RoleName);
-            builder.HasData(new Role { Id = "1", RoleName = "Admin" }, new Role { Id = "2", RoleName = "Employee" });
+            builder.HasData(new Role { Id = 1, RoleName = "Admin" }, new Role { Id = 2, RoleName = "Employee" });
         }
     }
 }

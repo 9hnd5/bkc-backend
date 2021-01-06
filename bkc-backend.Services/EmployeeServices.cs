@@ -34,7 +34,7 @@ namespace bkc_backend.Services.EmployeeServices
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        employees.Add(new Employee() { Id = (string)reader[0], Name = (string)reader[1] });
+                        employees.Add(new Employee() { Id = (int)reader[0], Name = (string)reader[1] });
                     }
                     reader.Close();
                     return employees;
@@ -65,9 +65,9 @@ namespace bkc_backend.Services.EmployeeServices
                     {
                         employee = new Employee()
                         {
-                            Id = (string)reader[0],
+                            Id = Convert.ToInt32( reader[0]),
                             Name = (string)reader[1],
-                            Phone = (string)reader[2],
+                            Phone = Convert.ToInt32(reader[2]),
                             Department = (string)reader[3],
                             BuId = (string)reader[4],
                             BuName = (string)reader[5],
@@ -80,7 +80,6 @@ namespace bkc_backend.Services.EmployeeServices
                 catch (Exception err)
                 {
                     return null;
-                    throw (err);
                 }
             }
         }
@@ -103,9 +102,9 @@ namespace bkc_backend.Services.EmployeeServices
                     {
                         employees.Add(new Employee()
                         {
-                            Id = (string)reader[0],
+                            Id = (int)reader[0],
                             Name = (string)reader[1],
-                            Phone = (string)reader[2],
+                            Phone = (int)reader[2],
                             Department = (string)reader[3],
                             BuId = (string)reader[4],
                             BuName = (string)reader[5],

@@ -36,7 +36,6 @@ namespace bkc_backend.Services
                             CarTotalSeat = c.TotalSeat,
                             CarAvailableSeat = c.AvailableSeat,
                             CarStatus = c.Status,
-                            CarBookingDate = c.BookingDate,
                             CarBuId = c.BuId,
                             CarBuName = c.BuName
                           }).ToList();

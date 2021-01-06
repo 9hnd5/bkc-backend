@@ -14,57 +14,57 @@ namespace bkc_backend.Data.Configurations
             builder.ToTable("BkcDriver");
             builder.HasKey(d => d.Id);
             builder.Property<string>(d => d.Name);
-            builder.Property<string>(d => d.Phone);
+            builder.Property<int>(d => d.Phone);
             builder.Property<string>(d => d.Email);
             builder.HasData(
                 new Driver()
                 {
-                    Id="2001",
+                    Id=2001,
                     Email="hanv@greenfeed.com.vn",
                     Name="Nguyễn Văn Hạ",
-                    Phone="093422345"
+                    Phone=093422345
                 },
                 new Driver()
                 {
-                    Id = "2002",
+                    Id = 2002,
                     Email = "lamnv@greenfeed.com.vn",
                     Name = "Nguyễn Văn Lâm",
-                    Phone = "093422335"
+                    Phone = 093422335
                 },
                 new Driver()
                 {
-                    Id = "2003",
+                    Id = 2003,
                     Email = "cuongtv@greenfeed.com.vn",
                     Name = "Trần Văn Cường",
-                    Phone = "033422335"
+                    Phone = 033422335
                 },
                 new Driver()
                  {
-                     Id = "2004",
+                     Id = 2004,
                      Email = "tientv@greenfeed.com.vn",
                      Name = "Trần Văn Tiến",
-                     Phone = "056422335"
+                     Phone = 056422335
                  },
                 new Driver()
                   {
-                      Id = "2005",
+                      Id = 2005,
                       Email = "xuanln@greenfeed.com.vn",
                       Name = "Lâm Nguyễn Xuân",
-                      Phone = "099422335"
+                      Phone = 099422335
                   },
                 new Driver()
                    {
-                       Id = "2006",
+                       Id = 2006,
                        Email = "tuongnx@greenfeed.com.vn",
                        Name = "Nguyễn Xuân Tường",
-                       Phone = "011422335"
+                       Phone = 011422335
                    },
                 new Driver()
                    {
-                       Id = "2007",
+                       Id = 2007,
                        Email = "namnt@greenfeed.com.vn",
                        Name = "Nguyễn Thạch Nam",
-                       Phone = "088422335"
+                       Phone = 088422335
                    }
             );
         }

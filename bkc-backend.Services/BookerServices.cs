@@ -11,7 +11,7 @@ namespace bkc_backend.Services
     public interface IBookerServices: IBaseServices<Booker>
     {
         public List<Booker> getBookersByBuId(string buId);
-        public List<Booker> getBookersByBuIdAndStatus(string buId, string status);
+        //public List<Booker> getBookersByBuIdAndStatus(string buId, string status);
     }
     public class BookerServices: BaseServices<Booker>, IBookerServices
     {
@@ -26,10 +26,10 @@ namespace bkc_backend.Services
             return result;
         }
 
-        public List<Booker> getBookersByBuIdAndStatus(string buId, string status)
-        {
-            var result = _context.Bookers.Where(b => b.BuId == buId && b.Status == status).Select(b => b).ToList();
-            return result;
-        }
+        //public List<Booker> getBookersByBuIdAndStatus(string buId, string status)
+        //{
+        //    var result = _context.Bookers.Where(b => b.BuId == buId && b.Status == status).Select(b => b).ToList();
+        //    return result;
+        //}
     }
 }
