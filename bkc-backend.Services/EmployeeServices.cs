@@ -11,7 +11,9 @@ namespace bkc_backend.Services.EmployeeServices
     {
         public List<Employee> GetAllEmployee();
         public Employee GetEmployeeByEmail(string email);
+        public Employee getEmployeeById(int id);
         public List<Employee> GetEmployeeByFilterKeyEmail(string filterKeyEmail);
+        public List<Employee> getEmployeeByName(string employeeName);
     }
     public class EmployeeServices : IEmployeeServices
     {
@@ -51,7 +53,7 @@ namespace bkc_backend.Services.EmployeeServices
         {
             string connectionString = _config["ConnectionString"];
             string queryString = "select EMPLOYEE_ID, EMPLOYEE_FULL_NAME, MOBILE_NUMBER, DEPARTMENT," +
-                "BUID, BUSINESS_UNIT, WORKING_EMAIL FROM dbo.TSEmployee where WORKING_EMAIL = @email";
+                "BUID, BUSINESS_UNIT, WORKING_EMAIL, LINE_MANAGER_ID FROM dbo.TSEmployee where WORKING_EMAIL = @email";
             Employee employee = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -65,16 +67,20 @@ namespace bkc_backend.Services.EmployeeServices
                     {
                         employee = new Employee()
                         {
-                            Id = Convert.ToInt32( reader[0]),
+                            Id = Convert.ToInt32(reader[0]),
                             Name = (string)reader[1],
-                            Phone = Convert.ToInt32(reader[2]),
+                            Phone = Convert.ToString(reader[2]),
                             Department = (string)reader[3],
                             BuId = (string)reader[4],
                             BuName = (string)reader[5],
-                            Email = (string)reader[6]
+                            Email = (string)reader[6],
+                            LineManagerId=Convert.ToInt32(reader[7])
                         };
                     }
                     reader.Close();
+                    var lineManager = getEmployeeById(employee.LineManagerId);
+                    if (lineManager == null) return employee;
+                    employee.LineManagerName = lineManager.Name;
                     return employee;
                 }
                 catch (Exception err)
@@ -104,7 +110,7 @@ namespace bkc_backend.Services.EmployeeServices
                         {
                             Id = (int)reader[0],
                             Name = (string)reader[1],
-                            Phone = (int)reader[2],
+                            Phone = (string)reader[2],
                             Department = (string)reader[3],
                             BuId = (string)reader[4],
                             BuName = (string)reader[5],
@@ -118,6 +124,80 @@ namespace bkc_backend.Services.EmployeeServices
                 catch (Exception err)
                 {
                     return null;
+                    throw (err);
+                }
+            }
+        }
+
+        public Employee getEmployeeById(int id)
+        {
+            string connectionString = _config["ConnectionString"];
+            string queryString = "select EMPLOYEE_ID, EMPLOYEE_FULL_NAME, MOBILE_NUMBER, DEPARTMENT," +
+                "BUID, BUSINESS_UNIT, WORKING_EMAIL FROM dbo.TSEmployee where EMPLOYEE_ID = " + Convert.ToString(id);
+            Employee employee = null;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                //command.Parameters.AddWithValue("@email", email);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        employee = new Employee()
+                        {
+                            Id = Convert.ToInt32(reader[0]),
+                            Name = (string)reader[1],
+                            Phone = Convert.ToString(reader[2]),
+                            Department = (string)reader[3],
+                            BuId = (string)reader[4],
+                            BuName = (string)reader[5],
+                            Email = (string)reader[6],
+                        };
+                    }
+                    reader.Close();
+                    return employee;
+                }
+                catch (Exception err)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public List<Employee> getEmployeeByName(string employeeName)
+        {
+            string connectionString = _config["ConnectionString"];
+            string queryString = "select EMPLOYEE_ID, EMPLOYEE_FULL_NAME, MOBILE_NUMBER, DEPARTMENT," +
+                "BUID, BUSINESS_UNIT, WORKING_EMAIL FROM dbo.TSEmployee where EMPLOYEE_FULL_NAME like '%" + employeeName + "%'";
+            List<Employee> employees = new List<Employee>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                //command.Parameters.AddWithValue("@filterKeyEmail", filterKeyEmail);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        employees.Add(new Employee()
+                        {
+                            Id = Convert.ToInt32(reader[0]),
+                            Name = Convert.ToString(reader[1]),
+                            //Phone = Convert.ToString(reader[2]),k
+                            //Department = (string)reader[3],
+                            BuId = Convert.ToString(reader[4]),
+                            BuName = Convert.ToString(reader[5]),
+                            Email = Convert.ToString(reader[6])
+                        });
+                    }
+                    reader.Close();
+                    return employees;
+                }
+                catch (Exception err)
+                {
                     throw (err);
                 }
             }

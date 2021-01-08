@@ -2,7 +2,7 @@
 
 namespace bkc_backend.Data.Migrations
 {
-    public partial class InitialDB1 : Migration
+    public partial class DBCreation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,6 +46,23 @@ namespace bkc_backend.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BkcBookingParticipant",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookingPickupLocationId = table.Column<int>(type: "int", nullable: false),
+                    BuId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BuName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    EmployeeName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BkcBookingParticipant", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "BkcBookingPickupLocation",
                 columns: table => new
                 {
@@ -54,8 +71,6 @@ namespace bkc_backend.Data.Migrations
                     BookerId = table.Column<int>(type: "int", nullable: false),
                     PickupLocation = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PickupTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeeId = table.Column<int>(type: "int", nullable: false),
-                    EmployeeName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     GuestName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone = table.Column<int>(type: "int", nullable: false),
                     NoteByBooker = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -183,8 +198,9 @@ namespace bkc_backend.Data.Migrations
                 columns: new[] { "Id", "RoleName" },
                 values: new object[,]
                 {
-                    { 1, "Admin" },
-                    { 2, "Employee" }
+                    { 2, "Admin" },
+                    { 3, "Employee" },
+                    { 1, "SuperAdmin" }
                 });
 
             migrationBuilder.InsertData(
@@ -207,6 +223,9 @@ namespace bkc_backend.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "BkcBookingInfor");
+
+            migrationBuilder.DropTable(
+                name: "BkcBookingParticipant");
 
             migrationBuilder.DropTable(
                 name: "BkcBookingPickupLocation");

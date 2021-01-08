@@ -23,6 +23,7 @@ namespace bkc_backend.Data
             builder.ApplyConfiguration(new RoleUserConfigurations());
             builder.ApplyConfiguration(new BookerConfigurations());
             builder.ApplyConfiguration(new TripConfigurations());
+            builder.ApplyConfiguration(new BookingParticipantConfigurations());
         }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Driver> Drivers { get; set; }
@@ -32,5 +33,6 @@ namespace bkc_backend.Data
         public DbSet<RoleUser> RoleUsers { get; set; }
         public DbSet<BookingInfor> BookingInfors { get; set; }
         public DbSet<Trip> Trips { get; set; }
+        public DbSet<BookingParticipant> bookingParticipants { get; set; }
     }
 }

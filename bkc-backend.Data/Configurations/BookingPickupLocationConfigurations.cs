@@ -15,8 +15,6 @@ namespace bkc_backend.Data.Configurations
             builder.HasKey(d => d.Id);
             builder.Property<string>(d => d.PickupLocation);
             builder.Property<string>(d => d.PickupTime);
-            builder.Property<int>(d => d.EmployeeId);
-            builder.Property<string>(d => d.EmployeeName);
             builder.Property<string>(d => d.GuestName);
             builder.Property<int>(d => d.Phone);
             builder.Property<string>(d => d.NoteByBooker);

@@ -9,8 +9,8 @@ using bkc_backend.Data;
 namespace bkc_backend.Data.Migrations
 {
     [DbContext(typeof(BkcDbContext))]
-    [Migration("20210106131449_InitialDB1")]
-    partial class InitialDB1
+    [Migration("20210107104713_DBCreation")]
+    partial class DBCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,6 +89,33 @@ namespace bkc_backend.Data.Migrations
                     b.ToTable("BkcBookingInfor");
                 });
 
+            modelBuilder.Entity("bkc_backend.Data.Entities.BookingParticipant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("BookingPickupLocationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BuId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BuName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EmployeeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BkcBookingParticipant");
+                });
+
             modelBuilder.Entity("bkc_backend.Data.Entities.BookingPickupLocation", b =>
                 {
                     b.Property<int>("Id")
@@ -98,12 +125,6 @@ namespace bkc_backend.Data.Migrations
 
                     b.Property<int>("BookerId")
                         .HasColumnType("int");
-
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("EmployeeName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GuestName")
                         .HasColumnType("nvarchar(max)");
@@ -329,13 +350,18 @@ namespace bkc_backend.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = 2,
                             RoleName = "Admin"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = 3,
                             RoleName = "Employee"
+                        },
+                        new
+                        {
+                            Id = 1,
+                            RoleName = "SuperAdmin"
                         });
                 });
 

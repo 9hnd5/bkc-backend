@@ -74,8 +74,6 @@ namespace bkc_backend.Controller.Controllers
                 {
                     Id = id,
                     BookerId = bookerId,
-                    EmployeeName = item.EmployeeName,
-                    EmployeeId = item.EmployeeId,
                     GuestName = item.GuestName,
                     NoteByBooker = item.NoteByBooker,
                     Phone = item.Phone,
@@ -175,6 +173,14 @@ namespace bkc_backend.Controller.Controllers
         {
             var employees = _employeeServices.GetEmployeeByFilterKeyEmail(key);
             if (employees == null) return BadRequest("Khong Tim Duoc Employee voi email: " + key);
+            return Ok(employees);
+        }
+        [Route("/api/bkc/search-by-employee-name/{employeeName}")]
+        [HttpGet]
+        public IActionResult getEmployeeByName(string employeeName)
+        {
+            var employees = _employeeServices.getEmployeeByName(employeeName);
+            
             return Ok(employees);
         }
     }
