@@ -9,8 +9,8 @@ using bkc_backend.Data;
 namespace bkc_backend.Data.Migrations
 {
     [DbContext(typeof(BkcDbContext))]
-    [Migration("20210107104713_DBCreation")]
-    partial class DBCreation
+    [Migration("20210109011021_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

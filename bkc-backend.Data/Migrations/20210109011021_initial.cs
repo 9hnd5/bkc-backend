@@ -2,7 +2,7 @@
 
 namespace bkc_backend.Data.Migrations
 {
-    public partial class DBCreation : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
