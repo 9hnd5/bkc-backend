@@ -169,3 +169,5 @@ D:\Project\bkc-backend\bkc-backend.Api\obj\Debug\net5.0\bkc-backend.Api.dll
 D:\Project\bkc-backend\bkc-backend.Api\obj\Debug\net5.0\ref\bkc-backend.Api.dll
 D:\Project\bkc-backend\bkc-backend.Api\obj\Debug\net5.0\bkc-backend.Api.pdb
 D:\Project\bkc-backend\bkc-backend.Api\obj\Debug\net5.0\bkc-backend.Api.genruntimeconfig.cache
+D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\AutoMapper.dll
+D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

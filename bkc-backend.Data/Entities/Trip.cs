@@ -6,20 +6,13 @@ using System.Threading.Tasks;
 
 namespace bkc_backend.Data.Entities
 {
-    public class Trip
+    public class Trip: BaseEntity
     {
-        public int Id { get; set; }
-        public int DriverId { get; set; }
-        public string DriverName { get; set; }
-        public int BookerId { get; set; }
-        public string BookerName { get; set; }
-        public int CarId { get; set; }
-        public string MoveTime { get; set; }
-        public string ReturnTime { get; set; }
-        public string MoveDate { get; set; }
-        public string ReturnDate { get; set; }
+        public string DriverId { get; set; }
+        public string CarId { get; set; }
+        public string MovingDate { get; set; }
+        public string ReturningDate { get; set; }
         public string NoteByAdmin { get; set; }
-
-
+        public bool Status { get; set; }
     }
 }

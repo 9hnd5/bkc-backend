@@ -42,4 +42,3 @@ D:\Project\bkc-backend\bkc-backend.Data\obj\Debug\net5.0\bkc-backend.Data.dll
 D:\Project\bkc-backend\bkc-backend.Data\obj\Debug\net5.0\ref\bkc-backend.Data.dll
 D:\Project\bkc-backend\bkc-backend.Data\obj\Debug\net5.0\bkc-backend.Data.pdb
 D:\Project\bkc-backend\bkc-backend.Data\obj\Debug\net5.0\bkc-backend.Data.genruntimeconfig.cache
-D:\Project\bkc-backend\bkc-backend.Data\obj\Debug\net5.0\bkc-backend.Data.csprojAssemblyReference.cache

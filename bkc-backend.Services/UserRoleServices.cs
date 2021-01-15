@@ -7,20 +7,29 @@ using System.Linq;
 
 namespace bkc_backend.Services
 {
-    public interface IUserRoleServices
+    public interface IUserRoleServices: IBaseServices<RoleUser>
     {
-        public RoleUser GetUserRoleByUserId(int userId);
+        public RoleUser GetUserRoleByUserId(string userId);
     }
     public class UserRoleServices : BaseServices<RoleUser>, IUserRoleServices
     {
-        public UserRoleServices(BkcDbContext context): base(context)
+        public UserRoleServices(BookingCarDbContext context) : base(context)
         {
 
         }
-        public RoleUser GetUserRoleByUserId(int userId)
+        public RoleUser GetUserRoleByUserId(string employeeId)
         {
-            var result = (from usr in _context.RoleUsers where usr.EmployeeId == userId select usr).FirstOrDefault();
-            return result;
+            try
+            {
+                var result = ( from roleUser in _context.RoleUsers
+                               where roleUser.EmployeeId == employeeId
+                               select roleUser).FirstOrDefault();
+                return result;
+            }
+            catch (Exception error)
+            {
+                return null;
+            }
         }
     }
 }

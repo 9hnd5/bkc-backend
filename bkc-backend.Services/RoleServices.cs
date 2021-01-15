@@ -12,7 +12,7 @@ namespace bkc_backend.Services
     }
     public class RoleServices : BaseServices<Role>, IRoleServices
     {
-        public RoleServices(BkcDbContext context):base(context)
+        public RoleServices(BookingCarDbContext context):base(context)
         {
 
         }

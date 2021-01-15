@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using bkc_backend.Api.Helpers;
 using bkc_backend.Controller.Helpers;
 using bkc_backend.Data;
 using bkc_backend.Services;
 using bkc_backend.Services.AuthServices;
-using bkc_backend.Services.EmployeeServices;
+using bkc_backend.Services.UserServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,23 +45,23 @@ namespace bkc_backend.Api
                                       builder.WithOrigins("https://localhost:3000", "http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
                                   });
             });
-            services.AddDbContext<BkcDbContext>(options => options.UseSqlServer(Configuration["ConnectionString"]));
+            //var mapperConfig = new MapperConfiguration(mc => {
+            //    mc.AddProfile(new AutoMapping());
+            //});
+            //IMapper mapper = mapperConfig.CreateMapper();
+            //services.AddSingleton(mapper);
+            services.AddAutoMapper(typeof(AutoMapping));
+            //services.AddAutoMapper(typeof(AutoMapping));
+            services.AddDbContext<BookingCarDbContext>(options => options.UseSqlServer(Configuration["ConnectionString"]));
             //services.AddDbContext<BkcDbContext>(options => options.UseSqlServer("Server=.; Database=HRAD;User Id=sa;password=123456"));
             //services.AddDbContext<BkcDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
             services.AddControllers();
-            services.AddScoped<IUserRoleServices, UserRoleServices>();
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<ICreateToken, CreateToken>();
             services.AddScoped<IUserRoleServices, UserRoleServices>();
             services.AddScoped<IRoleServices, RoleServices>();
             services.AddScoped<IAuthServices, AuthServices>();
             services.AddScoped<IEmployeeServices, EmployeeServices>();
-            services.AddScoped<IBookerServices, BookerServices>();
-            services.AddScoped<IBookingDetailServices, BookingDetailServices>();
-            services.AddScoped<IBookingInforServices, BookingInforServices>();
-            services.AddScoped<IDriverCarServices, DriverCarServices>();
-            services.AddScoped<ICarServices, CarServices>();
-            services.AddScoped<ITripServices, TripServices>();
             var key = Encoding.UTF8.GetBytes(Configuration["Key"]);
             services.AddAuthentication(x =>
             {
@@ -93,6 +95,7 @@ namespace bkc_backend.Api
             app.UseRouting();
             app.UseAuthorization();
             app.UseCors(MyAllowSpecificOrigins);
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

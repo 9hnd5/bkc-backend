@@ -4,11 +4,12 @@ using System.Text;
 
 namespace bkc_backend.Data.Entities
 {
-    public class RoleUser
+    public class RoleUser: BaseEntity
     {
-        public int Id { get; set; }
-        public int RoleId { get; set; }
-        public int EmployeeId { get; set; }
-        public string BuId { get; set; }
+        //public string Id { get; set; }
+        public string RoleId { get; set; }
+        public string EmployeeId { get; set; }
+        public string EmployeeName { get; set; }
+        public string EmployeeBuId { get; set; }
     }
 }

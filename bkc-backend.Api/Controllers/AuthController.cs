@@ -7,7 +7,7 @@ using bkc_backend.Controller.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using bkc_backend.Services;
-using bkc_backend.Services.EmployeeServices;
+using bkc_backend.Services.UserServices;
 using bkc_backend.Data.Entities;
 using bkc_backend.Api.Model;
 
@@ -51,22 +51,10 @@ namespace bkc_backend.Controller.Controllers
             {
                 return BadRequest();
             }
-            emp.Role = role.RoleName;
-            string token = _token.Create(emp.Name, role.RoleName);
-            AuthResponse response = new AuthResponse() { Token = token, Employee = emp }; 
+            emp.Role = role.Name;
+            string token = _token.Create(emp.Name, role.Name);
+            AuthResponse response = new AuthResponse() { Token = token, User = emp }; 
             return Ok(response);
         }
-        //[Authorize]
-        //[Route("api/employee/getbyemail/{email}")]
-        //[HttpPost]
-        //public IActionResult GetEmployeeByEmail(string email)
-        //{
-        //    var emp = _employeeServices.GetEmployeeByEmail(email);
-        //    if(emp == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return Ok(emp);
-        //}
     }
 }

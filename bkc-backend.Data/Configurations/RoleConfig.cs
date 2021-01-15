@@ -7,14 +7,15 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace bkc_backend.Data.Configurations
 {
-    public class RoleConfigurations : IEntityTypeConfiguration<Role>
+    public class RoleConfig : IEntityTypeConfiguration<Role>
     {
         public void Configure(EntityTypeBuilder<Role> builder)
         {
-            builder.ToTable("BkcRole");
+            builder.ToTable("BKC_Role");
             builder.HasKey(r => r.Id);
-            builder.Property<string>(r => r.RoleName);
-            builder.HasData(new Role { Id = 2, RoleName = "Admin" }, new Role { Id = 3, RoleName = "Employee" }, new Role {Id=1, RoleName="SuperAdmin" });
+            builder.Property(r => r.Id).ValueGeneratedNever();
+            builder.Property<string>(r => r.Name);
+            builder.HasData(new Role { Id = "2", Name = "Admin" }, new Role { Id = "3", Name = "Member" }, new Role {Id="1", Name="SuperAdmin" });
         }
     }
 }
