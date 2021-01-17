@@ -7,10 +7,13 @@ using System.Linq;
 
 namespace bkc_backend.Services
 {
-    public interface IUserRoleServices: IBaseServices<RoleUser>
+    public interface IUserRoleServices : IBaseServices<RoleUser>
     {
         public RoleUser GetUserRoleByUserId(string userId);
     }
+
+
+
     public class UserRoleServices : BaseServices<RoleUser>, IUserRoleServices
     {
         public UserRoleServices(BookingCarDbContext context) : base(context)
@@ -19,17 +22,14 @@ namespace bkc_backend.Services
         }
         public RoleUser GetUserRoleByUserId(string employeeId)
         {
-            try
-            {
-                var result = ( from roleUser in _context.RoleUsers
-                               where roleUser.EmployeeId == employeeId
-                               select roleUser).FirstOrDefault();
-                return result;
-            }
-            catch (Exception error)
-            {
-                return null;
-            }
+
+
+            var result = (from roleUser in _context.RoleUsers
+                          where roleUser.EmployeeId == employeeId
+                          select roleUser).FirstOrDefault();
+            return result;
+
+
         }
     }
 }

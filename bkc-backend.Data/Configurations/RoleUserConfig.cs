@@ -13,10 +13,11 @@ namespace bkc_backend.Data.Configurations
         {
             builder.ToTable("BKC_RoleUser");
             builder.HasKey(e => e.Id);
-            builder.Property(e => e.Id).ValueGeneratedNever();
+            builder.Property<string>(x => x.Id).ValueGeneratedOnAdd();
             builder.Property<string>(e => e.RoleId);
             builder.Property<string>(e => e.EmployeeId);
             builder.Property<string>(e => e.EmployeeBuId);
+            builder.Ignore(x => x.Role);
             builder.HasData(
                 new RoleUser { Id = "1", RoleId = "1", EmployeeId = "102144", EmployeeBuId = "300000001732966" },
                 new RoleUser { Id = "2", RoleId = "3", EmployeeId = "104077", EmployeeBuId = "300000001732966" },

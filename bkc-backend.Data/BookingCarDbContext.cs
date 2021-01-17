@@ -29,14 +29,14 @@ namespace bkc_backend.Data
 
         public DbSet<Role> Roles { get; set; }
         public DbSet<RoleUser> RoleUsers { get; set; }
-        public DbSet<BookingInfor> bookingInfors { get; set; }
-        public DbSet<BookingResult> bookingResults { get; set; }
-        public DbSet<Car> cars { get; set; }
-        public DbSet<Driver> drivers { get; set; }
-        public DbSet<Participant> participants { get; set; }
-        public DbSet<PickupLocation> pickupLocations { get; set; }
-        public DbSet<RelatePerson> relatePersons { get; set; }
-        public DbSet<Trip> trips { get; set; }
+        public DbSet<BookingInfor> BookingInfors { get; set; }
+        public DbSet<BookingResult> BookingResults { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<Driver> Drivers { get; set; }
+        public DbSet<Participant> Participants { get; set; }
+        public DbSet<PickupLocation> PickupLocations { get; set; }
+        public DbSet<RelatePerson> RelatePersons { get; set; }
+        public DbSet<Trip> Trips { get; set; }
 
     }
 }

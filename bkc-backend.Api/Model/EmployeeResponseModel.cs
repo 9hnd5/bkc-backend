@@ -11,5 +11,7 @@ namespace bkc_backend.Api.Model
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+        public string BuId { get; set; }
+        public string BuName { get; set; }
     }
 }

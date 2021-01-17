@@ -15,13 +15,16 @@ namespace bkc_backend.Data.Configurations
         {
             builder.ToTable("BKC_Trip");
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).ValueGeneratedNever();
+            builder.Property<string>(x => x.Id).ValueGeneratedOnAdd();
             builder.Property<string>(x => x.DriverId);
             builder.Property<string>(x => x.CarId);
             builder.Property<string>(x => x.MovingDate);
             builder.Property<string>(x => x.ReturningDate);
             builder.Property<string>(x => x.NoteByAdmin);
             builder.Property<bool>(x => x.Status);
+            builder.Ignore(x => x.Car);
+            builder.Ignore(x => x.Driver);
+            builder.Ignore(x => x.BookingResults);
         }
     }
 }

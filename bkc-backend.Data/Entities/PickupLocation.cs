@@ -14,5 +14,7 @@ namespace bkc_backend.Data.Entities
         public string Guest { get; set; }
         public string Phone { get; set; }
         public string Note { get; set; }
+        public BookingInfor BookingInfor { get; set; }
+        public List<Participant> Participants { get; set; }
     }
 }

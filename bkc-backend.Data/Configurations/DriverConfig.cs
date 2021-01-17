@@ -15,10 +15,11 @@ namespace bkc_backend.Data.Configurations
         {
             builder.ToTable("BKC_Driver");
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).ValueGeneratedNever();
+            builder.Property<string>(x => x.Id).ValueGeneratedOnAdd();
             builder.Property<string>(x => x.Name);
             builder.Property<string>(x => x.Phone);
             builder.Property<string>(x => x.Email);
+            builder.Ignore(x => x.Car);
         }
     }
 }

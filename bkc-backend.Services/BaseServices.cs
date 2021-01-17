@@ -1,59 +1,70 @@
 ﻿using bkc_backend.Data;
 using bkc_backend.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace bkc_backend.Services
 {
-    public interface IBaseServices<T> where T: BaseEntity
+    public interface IBaseServices<T> where T : BaseEntity
     {
-        public void insert(T obj);
-        public void update(T obj);
-        public void delete(T obj);
-        public void deleteById(string id);
-        public List<T> getAll();
-        public T getById(object id);
+        public void Add(T entity);
+        public void AddRange(List<T> entities);
+        public void Update(T entity);
+        public void Remove(T entity);
+        public void RemoveRange(List<T> entities);
+        public List<T> GetAll();
+        public T GetById(string id);
     }
     public class BaseServices<T> : IBaseServices<T> where T : BaseEntity
     {
-        public readonly BookingCarDbContext _context;
+        public BookingCarDbContext _context;
+        public DbSet<T> _entity;
         public BaseServices(BookingCarDbContext context)
         {
             _context = context;
+            _entity = _context.Set<T>();
         }
-        public void delete(T obj)
+        public void Add(T entity)
         {
-            _context.Set<T>().Remove(obj);
-        }
-
-        public void deleteById(string id)
-        {
-            T element = (from e in _context.Set<T>()
-             where e.Id == id
-             select e).FirstOrDefault();
-            _context.Set<T>().Remove(element);
+            _entity.Add(entity);
+            _context.SaveChanges();
         }
 
-        public List<T> getAll()
+        public void AddRange(List<T> entities)
         {
-            return _context.Set<T>().ToList();
+            _entity.AddRange(entities);
+            _context.SaveChanges();
         }
 
-        public T getById(object id)
+        public List<T> GetAll()
         {
-            return _context.Set<T>().Find(id);
+            return _entity.ToList();
         }
 
-        public void insert(T obj)
+        public T GetById(string id)
         {
-            _context.Set<T>().Add(obj);
+            return _entity.FirstOrDefault(x => x.Id == id);
         }
 
-        public void update(T obj)
+        public void Remove(T entity)
         {
-            if (obj == null) throw new ArgumentNullException("entity");
+            _entity.Remove(entity);
+            _context.SaveChanges();
+        }
+
+        public void RemoveRange(List<T> entities)
+        {
+            _entity.RemoveRange(entities);
+            _context.SaveChanges();
+        }
+
+        public void Update(T entity)
+        {
+            _context.SaveChanges();
             throw new NotImplementedException();
         }
     }

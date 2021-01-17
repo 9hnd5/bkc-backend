@@ -14,4 +14,8 @@
     <ProjectReference Include="..\bkc-backend.Services\bkc-backend.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Model\RequestModel\" />
+  </ItemGroup>
+
 </Project>

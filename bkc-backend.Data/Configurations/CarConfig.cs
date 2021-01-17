@@ -15,7 +15,7 @@ namespace bkc_backend.Data.Configurations
         {
             builder.ToTable("BKC_Car");
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).ValueGeneratedNever();
+            builder.Property<string>(x => x.Id).ValueGeneratedOnAdd();
             builder.Property<string>(x => x.DriverId);
             builder.Property<string>(x => x.Number);
             builder.Property<int>(x => x.TotalSeat);
@@ -23,6 +23,7 @@ namespace bkc_backend.Data.Configurations
             builder.Property<string>(x => x.BuId);
             builder.Property<string>(x => x.BuName);
             builder.Property<bool>(x => x.Status);
+            builder.Ignore(x => x.Driver);
         }
     }
 }

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bkc-backend.Api", "bkc-backend.Api\bkc-backend.Api.csproj", "{0245DC67-12C1-4D03-8D27-E5D73D58D6FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bkc-backend.Api", "bkc-backend.Api\bkc-backend.Api.csproj", "{0245DC67-12C1-4D03-8D27-E5D73D58D6FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bkc-backend.Services", "bkc-backend.Services\bkc-backend.Services.csproj", "{0CB63DA6-A353-40D9-80E3-E04C16A9E4B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bkc-backend.Services", "bkc-backend.Services\bkc-backend.Services.csproj", "{0CB63DA6-A353-40D9-80E3-E04C16A9E4B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bkc-backend.Data", "bkc-backend.Data\bkc-backend.Data.csproj", "{5EBB0A54-C8A7-4FA2-9999-7D81398EEF45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bkc-backend.Data", "bkc-backend.Data\bkc-backend.Data.csproj", "{5EBB0A54-C8A7-4FA2-9999-7D81398EEF45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

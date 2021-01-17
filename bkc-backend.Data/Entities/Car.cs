@@ -15,5 +15,6 @@ namespace bkc_backend.Data.Entities
         public string BuId { get; set; }
         public string BuName { get; set; }
         public bool Status { get; set; }
+        public Driver Driver { get; set; }
     }
 }

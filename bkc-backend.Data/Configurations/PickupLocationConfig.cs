@@ -15,13 +15,15 @@ namespace bkc_backend.Data.Configurations
         {
             builder.ToTable("BKC_PickupLocation");
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).ValueGeneratedNever();
+            builder.Property<string>(x => x.Id).ValueGeneratedOnAdd();
             builder.Property<string>(x => x.BookingInforId);
             builder.Property<string>(x => x.Location);
             builder.Property<string>(x => x.Time);
             builder.Property<string>(x => x.Guest);
             builder.Property<string>(x => x.Phone);
             builder.Property<string>(x => x.Note);
+            builder.Ignore(x => x.BookingInfor);
+            builder.Ignore(x => x.Participants);
         }
     }
 }

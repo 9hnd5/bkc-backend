@@ -13,5 +13,6 @@ namespace bkc_backend.Data.Entities
         public string EmployeeName { get; set; }
         public string EmployeePhone { get; set; }
         public string EmployeeEmail { get; set; }
+        public PickupLocation PickupLocation { get; set; }
     }
 }

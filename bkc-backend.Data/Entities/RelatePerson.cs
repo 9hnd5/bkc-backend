@@ -12,5 +12,6 @@ namespace bkc_backend.Data.Entities
         public string EmployeeId { get; set; }
         public string EmployeeName { get; set; }
         public string EmployeeEmail { get; set; }
+        public BookingInfor BookingInfor { get; set; }
     }
 }

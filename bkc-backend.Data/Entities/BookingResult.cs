@@ -12,5 +12,7 @@ namespace bkc_backend.Data.Entities
         public string MovingTripId { get; set; }
         public string ReturningTripId { get; set; }
         public string Status { get; set; }
+        public BookingInfor BookingInfor { get; set; }
+        public Trip Trip { get; set; }
     }
 }

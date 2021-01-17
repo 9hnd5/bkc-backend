@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "AutoMapper/10.1.0": {
+      "AutoMapper/10.1.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
@@ -1410,6 +1410,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "AutoMapper": "10.1.1",
           "bkc-backend.Data": "1.0.0"
         },
         "compile": {
@@ -1422,14 +1423,14 @@
     }
   },
   "libraries": {
-    "AutoMapper/10.1.0": {
-      "sha512": "qxn9+PpQJD53PAUHGXW3HTcq6Rxbv3Pyq/jTcc60ZYwOygyqUfHIY3HBChKbDwtTHdlwlQqJeJ1ckVcaoytxxw==",
+    "AutoMapper/10.1.1": {
+      "sha512": "uMgbqOdu9ZG5cIOty0C85hzzayBH2i9BthnS5FlMqKtMSHDv4ts81a2jS1VFaDBVhlBeIqJ/kQKjQY95BZde9w==",
       "type": "package",
-      "path": "automapper/10.1.0",
+      "path": "automapper/10.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "automapper.10.1.0.nupkg.sha512",
+        "automapper.10.1.1.nupkg.sha512",
         "automapper.nuspec",
         "icon.png",
         "lib/net461/AutoMapper.dll",
@@ -5380,19 +5381,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\huy.ndinh\\.nuget\\packages\\": {}
+    "C:\\Users\\HuyNguyen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
+      "projectUniqueName": "F:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
       "projectName": "bkc-backend.Api",
-      "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
-      "packagesPath": "C:\\Users\\huy.ndinh\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\bkc-backend\\bkc-backend.Api\\obj\\",
+      "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
+      "packagesPath": "C:\\Users\\HuyNguyen\\.nuget\\packages\\",
+      "outputPath": "F:\\Project\\bkc-backend\\bkc-backend.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\huy.ndinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HuyNguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5406,8 +5407,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj": {
-              "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj"
+            "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj": {
+              "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj"
             }
           }
         }

@@ -15,11 +15,12 @@ namespace bkc_backend.Data.Configurations
         {
             builder.ToTable("BKC_RelatePerson");
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).ValueGeneratedNever();
+            builder.Property<string>(x => x.Id).ValueGeneratedOnAdd();
             builder.Property<string>(x => x.BookingInforId);
             builder.Property<string>(x => x.EmployeeId);
             builder.Property<string>(x => x.EmployeeName);
             builder.Property<string>(x => x.EmployeeEmail);
+            builder.Ignore(x => x.BookingInfor);
         }
     }
 }

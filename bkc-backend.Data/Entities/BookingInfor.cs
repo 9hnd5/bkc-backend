@@ -22,5 +22,8 @@ namespace bkc_backend.Data.Entities
         public string Destination { get; set; }
         public int TotalPerson { get; set; }
         public string ReasonBooking { get; set; }
+        public List<PickupLocation> PickupLocations { get; set; }
+        public List<RelatePerson> RelatePersons { get; set; }
+        public BookingResult BookingResult { get; set; }
     }
 }

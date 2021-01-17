@@ -7,13 +7,13 @@ using bkc_backend.Controller.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using bkc_backend.Services;
-using bkc_backend.Services.UserServices;
+using bkc_backend.Services.EmployeeServices;
 using bkc_backend.Data.Entities;
 using bkc_backend.Api.Model;
 
 namespace bkc_backend.Controller.Controllers
 {
-    public class AuthController: ControllerBase
+    public class AuthController : ControllerBase
     {
         private IEmployeeServices _employeeServices;
         private ICreateToken _token;
@@ -42,18 +42,18 @@ namespace bkc_backend.Controller.Controllers
                 return BadRequest();
             }
             var userRole = _userRoleServices.GetUserRoleByUserId(emp.Id);
-            if(userRole == null)
+            if (userRole == null)
             {
                 return BadRequest();
             }
-            var role = _roleServices.getById(userRole.RoleId);
-            if(role == null)
+            var role = _roleServices.GetById(userRole.RoleId);
+            if (role == null)
             {
                 return BadRequest();
             }
             emp.Role = role.Name;
             string token = _token.Create(emp.Name, role.Name);
-            AuthResponse response = new AuthResponse() { Token = token, User = emp }; 
+            AuthResponse response = new AuthResponse() { Token = token, User = emp };
             return Ok(response);
         }
     }

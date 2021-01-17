@@ -8,8 +8,8 @@ using bkc_backend.Api.Helpers;
 using bkc_backend.Controller.Helpers;
 using bkc_backend.Data;
 using bkc_backend.Services;
-using bkc_backend.Services.AuthServices;
-using bkc_backend.Services.UserServices;
+using bkc_backend.Services.AutoMapping;
+using bkc_backend.Services.EmployeeServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -50,7 +50,8 @@ namespace bkc_backend.Api
             //});
             //IMapper mapper = mapperConfig.CreateMapper();
             //services.AddSingleton(mapper);
-            services.AddAutoMapper(typeof(AutoMapping));
+            services.AddAutoMapper(typeof(AutoMappingController));
+            services.AddAutoMapper(typeof(AutoMappingServices));
             //services.AddAutoMapper(typeof(AutoMapping));
             services.AddDbContext<BookingCarDbContext>(options => options.UseSqlServer(Configuration["ConnectionString"]));
             //services.AddDbContext<BkcDbContext>(options => options.UseSqlServer("Server=.; Database=HRAD;User Id=sa;password=123456"));
@@ -60,8 +61,12 @@ namespace bkc_backend.Api
             services.AddSingleton<ICreateToken, CreateToken>();
             services.AddScoped<IUserRoleServices, UserRoleServices>();
             services.AddScoped<IRoleServices, RoleServices>();
-            services.AddScoped<IAuthServices, AuthServices>();
             services.AddScoped<IEmployeeServices, EmployeeServices>();
+            services.AddScoped<IBookingInforServices, BookingInforServices>();
+            services.AddScoped<IRelatePersonServices, RelatePersonServices>();
+            services.AddScoped<IBookingResultServices, BookingResultServices>();
+            services.AddScoped<IPickupLocationServices, PickupLocationServices>();
+            services.AddScoped<IParticipantServices, ParticipantServices>();
             var key = Encoding.UTF8.GetBytes(Configuration["Key"]);
             services.AddAuthentication(x =>
             {

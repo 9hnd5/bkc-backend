@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace bkc_backend.Services.UserServices
+namespace bkc_backend.Services.EmployeeServices
 {
     public class Employee
     {
@@ -68,6 +68,7 @@ namespace bkc_backend.Services.UserServices
                 }
                 catch (Exception err)
                 {
+                    Console.WriteLine("Error when fetch Employee with email: " + email + err);
                     return null;
                 }
             }

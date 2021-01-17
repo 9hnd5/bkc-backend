@@ -14,12 +14,14 @@ namespace bkc_backend.Data.Configurations
         public void Configure(EntityTypeBuilder<BookingResult> builder)
         {
             builder.ToTable("BKC_BookingResult");
+            builder.Property<string>(x => x.Id).ValueGeneratedOnAdd();
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).ValueGeneratedNever();
             builder.Property<string>(x => x.BookingInforId);
             builder.Property<string>(x => x.MovingTripId);
             builder.Property<string>(x => x.ReturningTripId);
             builder.Property<string>(x => x.Status);
+            builder.Ignore(x => x.BookingInfor);
+            builder.Ignore(x => x.Trip);
 
         }
     }

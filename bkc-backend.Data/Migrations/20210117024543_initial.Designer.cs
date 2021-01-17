@@ -9,7 +9,7 @@ using bkc_backend.Data;
 namespace bkc_backend.Data.Migrations
 {
     [DbContext(typeof(BookingCarDbContext))]
-    [Migration("20210115085322_initial")]
+    [Migration("20210117024543_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,7 @@ namespace bkc_backend.Data.Migrations
             modelBuilder.Entity("bkc_backend.Data.Entities.BookingInfor", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Destination")
@@ -75,6 +76,7 @@ namespace bkc_backend.Data.Migrations
             modelBuilder.Entity("bkc_backend.Data.Entities.BookingResult", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("BookingInforId")
@@ -97,6 +99,7 @@ namespace bkc_backend.Data.Migrations
             modelBuilder.Entity("bkc_backend.Data.Entities.Car", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AvailableSeat")
@@ -128,6 +131,7 @@ namespace bkc_backend.Data.Migrations
             modelBuilder.Entity("bkc_backend.Data.Entities.Driver", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
@@ -147,6 +151,7 @@ namespace bkc_backend.Data.Migrations
             modelBuilder.Entity("bkc_backend.Data.Entities.Participant", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("EmployeeEmail")
@@ -172,6 +177,7 @@ namespace bkc_backend.Data.Migrations
             modelBuilder.Entity("bkc_backend.Data.Entities.PickupLocation", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("BookingInforId")
@@ -200,6 +206,7 @@ namespace bkc_backend.Data.Migrations
             modelBuilder.Entity("bkc_backend.Data.Entities.RelatePerson", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("BookingInforId")
@@ -222,6 +229,7 @@ namespace bkc_backend.Data.Migrations
             modelBuilder.Entity("bkc_backend.Data.Entities.Role", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
@@ -252,6 +260,7 @@ namespace bkc_backend.Data.Migrations
             modelBuilder.Entity("bkc_backend.Data.Entities.RoleUser", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("EmployeeBuId")
@@ -297,6 +306,7 @@ namespace bkc_backend.Data.Migrations
             modelBuilder.Entity("bkc_backend.Data.Entities.Trip", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CarId")

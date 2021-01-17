@@ -13,8 +13,9 @@ namespace bkc_backend.Data.Configurations
         {
             builder.ToTable("BKC_Role");
             builder.HasKey(r => r.Id);
-            builder.Property(r => r.Id).ValueGeneratedNever();
+            builder.Property<string>(x => x.Id).ValueGeneratedOnAdd();
             builder.Property<string>(r => r.Name);
+            builder.Ignore(x => x.RoleUser);
             builder.HasData(new Role { Id = "2", Name = "Admin" }, new Role { Id = "3", Name = "Member" }, new Role {Id="1", Name="SuperAdmin" });
         }
     }
