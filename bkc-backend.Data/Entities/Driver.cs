@@ -8,9 +8,14 @@ namespace bkc_backend.Data.Entities
 {
     public class Driver: BaseEntity
     {
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
+        public string EmployeeId { get; set; }
+        public string EmployeeName { get; set; }
+        public string EmployeePhone { get; set; }
+        public string EmployeeEmail { get; set; }
+        public string EmployeeBuId { get; set; }
+        public string EmployeeBuName { get; set; }
+
+        public int CarId { get; set; }
         public Car Car { get; set; }
     }
 }

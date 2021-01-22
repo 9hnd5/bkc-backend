@@ -13,15 +13,15 @@ namespace bkc_backend.Data.Configurations
         {
             builder.ToTable("BKC_RoleUser");
             builder.HasKey(e => e.Id);
-            builder.Property<string>(x => x.Id).ValueGeneratedOnAdd();
-            builder.Property<string>(e => e.RoleId);
-            builder.Property<string>(e => e.EmployeeId);
-            builder.Property<string>(e => e.EmployeeBuId);
+            builder.Property<int>(x => x.Id).ValueGeneratedOnAdd();
+            builder.Property<int>(e => e.RoleId);
+            builder.Property<string>(e => e.EmployeeId).HasColumnType("nvarchar(30)");
+            builder.Property<string>(e => e.EmployeeBuId).HasColumnType("nvarchar(50)");
             builder.Ignore(x => x.Role);
             builder.HasData(
-                new RoleUser { Id = "1", RoleId = "1", EmployeeId = "102144", EmployeeBuId = "300000001732966" },
-                new RoleUser { Id = "2", RoleId = "3", EmployeeId = "104077", EmployeeBuId = "300000001732966" },
-                new RoleUser { Id = "3", RoleId = "1", EmployeeId = "602748", EmployeeBuId = "300000001732979" }
+                new RoleUser { Id = 1, RoleId = 1, EmployeeId = "102144", EmployeeBuId = "300000001732966" },
+                new RoleUser { Id = 2, RoleId = 3, EmployeeId = "104077", EmployeeBuId = "300000001732966" },
+                new RoleUser { Id = 3, RoleId = 1, EmployeeId = "602748", EmployeeBuId = "300000001732979" }
             );
         }
     }

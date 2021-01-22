@@ -18,102 +18,27 @@ namespace bkc_backend.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
-            modelBuilder.Entity("bkc_backend.Data.Entities.BookingInfor", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Destination")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmployeeBuId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmployeeBuName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmployeeDepartment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmployeeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmployeeLineManagerId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmployeeLineManagerName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmployeeName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmployeePhone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MovingDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ReasonBooking")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ReturningDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TotalPerson")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BKC_BookingInfor");
-                });
-
-            modelBuilder.Entity("bkc_backend.Data.Entities.BookingResult", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("BookingInforId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MovingTripId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ReturningTripId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BKC_BookingResult");
-                });
-
             modelBuilder.Entity("bkc_backend.Data.Entities.Car", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<int>("AvailableSeat")
                         .HasColumnType("int");
 
                     b.Property<string>("BuId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("BuName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("DriverId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("CurrentLocation")
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Number")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -124,114 +49,198 @@ namespace bkc_backend.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("BKC_Car");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1001,
+                            AvailableSeat = 12,
+                            BuId = "300000001732966",
+                            BuName = "H.O",
+                            Number = "GOLD-XYZZ11",
+                            Status = false,
+                            TotalSeat = 12
+                        },
+                        new
+                        {
+                            Id = 1002,
+                            AvailableSeat = 7,
+                            BuId = "300000001732966",
+                            BuName = "H.O",
+                            Number = "GOLD-9X11232",
+                            Status = false,
+                            TotalSeat = 7
+                        },
+                        new
+                        {
+                            Id = 1003,
+                            AvailableSeat = 14,
+                            BuId = "300000001732966",
+                            BuName = "H.O",
+                            Number = "GOLD-9X27363",
+                            Status = false,
+                            TotalSeat = 14
+                        });
                 });
 
             modelBuilder.Entity("bkc_backend.Data.Entities.Driver", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("EmployeeBuId")
+                        .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("EmployeeBuName")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("EmployeeEmail")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("EmployeeId")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("EmployeeName")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("EmployeePhone")
+                        .HasColumnType("nvarchar(15)");
 
                     b.HasKey("Id");
 
                     b.ToTable("BKC_Driver");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 2001,
+                            CarId = 1001,
+                            EmployeeBuId = "300000001732966",
+                            EmployeeBuName = "H.O",
+                            EmployeeEmail = "abc@gmail.com",
+                            EmployeeId = "602748",
+                            EmployeeName = "Nguyễn Văn Tài",
+                            EmployeePhone = "0934773645"
+                        },
+                        new
+                        {
+                            Id = 2002,
+                            CarId = 1002,
+                            EmployeeBuId = "300000001732966",
+                            EmployeeBuName = "H.O",
+                            EmployeeEmail = "abc@gmail.com",
+                            EmployeeId = "102144",
+                            EmployeeName = "Trần Văn Cường",
+                            EmployeePhone = "0334773235"
+                        },
+                        new
+                        {
+                            Id = 2003,
+                            CarId = 1003,
+                            EmployeeBuId = "300000001732966",
+                            EmployeeBuName = "H.O",
+                            EmployeeEmail = "abc@gmail.com",
+                            EmployeeId = "104077",
+                            EmployeeName = "Nguyễn Thị Hoa",
+                            EmployeePhone = "0884773235"
+                        });
+                });
+
+            modelBuilder.Entity("bkc_backend.Data.Entities.Location", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("GuestName")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<string>("Place")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("TicketId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Time")
+                        .HasColumnType("nvarchar(15)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BKC_Location");
                 });
 
             modelBuilder.Entity("bkc_backend.Data.Entities.Participant", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("EmployeeEmail")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("EmployeeId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("EmployeeName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("EmployeePhone")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(15)");
 
-                    b.Property<string>("PickupLocationId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("LocationId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("BKC_Participant");
                 });
 
-            modelBuilder.Entity("bkc_backend.Data.Entities.PickupLocation", b =>
+            modelBuilder.Entity("bkc_backend.Data.Entities.RelatedPeople", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("BookingInforId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Guest")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Note")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Time")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BKC_PickupLocation");
-                });
-
-            modelBuilder.Entity("bkc_backend.Data.Entities.RelatePerson", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("BookingInforId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("EmployeeEmail")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("EmployeeId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("EmployeeName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<int>("TicketId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("BKC_RelatePerson");
+                    b.ToTable("BKC_RelatedPeople");
                 });
 
             modelBuilder.Entity("bkc_backend.Data.Entities.Role", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
 
@@ -240,38 +249,39 @@ namespace bkc_backend.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2",
+                            Id = 2,
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "3",
+                            Id = 3,
                             Name = "Member"
                         },
                         new
                         {
-                            Id = "1",
+                            Id = 1,
                             Name = "SuperAdmin"
                         });
                 });
 
             modelBuilder.Entity("bkc_backend.Data.Entities.RoleUser", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("EmployeeBuId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("EmployeeId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("EmployeeName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -280,50 +290,150 @@ namespace bkc_backend.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1",
+                            Id = 1,
                             EmployeeBuId = "300000001732966",
                             EmployeeId = "102144",
-                            RoleId = "1"
+                            RoleId = 1
                         },
                         new
                         {
-                            Id = "2",
+                            Id = 2,
                             EmployeeBuId = "300000001732966",
                             EmployeeId = "104077",
-                            RoleId = "3"
+                            RoleId = 3
                         },
                         new
                         {
-                            Id = "3",
+                            Id = 3,
                             EmployeeBuId = "300000001732979",
                             EmployeeId = "602748",
-                            RoleId = "1"
+                            RoleId = 1
                         });
+                });
+
+            modelBuilder.Entity("bkc_backend.Data.Entities.Ticket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("ApprovedDate")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("ApproverId")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("ApproverName")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("CreateDate")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("EmployeeBuId")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("EmployeeBuName")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("EmployeeDepartment")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("EmployeeId")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("EmployeeLineManagerId")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("EmployeeLineManagerName")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("EmployeeName")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("EmployeePhone")
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<string>("EndDate")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("FromLocation")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("NoteByApprover")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("ReasonBooking")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("StartDate")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<int>("TicketTripId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ToLocation")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("TotalParticipant")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BKC_Ticket");
+                });
+
+            modelBuilder.Entity("bkc_backend.Data.Entities.TicketTrip", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("TicketId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TripId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BKC_TicketTrip");
                 });
 
             modelBuilder.Entity("bkc_backend.Data.Entities.Trip", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
-                    b.Property<string>("CarId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("DriverId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("DriverId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("MovingDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("FromLocation")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("IsFinish")
+                        .HasColumnType("bit");
 
                     b.Property<string>("NoteByAdmin")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("ReturningDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("StartDate")
+                        .HasColumnType("nvarchar(20)");
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
+                    b.Property<int>("TicketTripId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ToLocation")
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 

@@ -15,16 +15,21 @@ namespace bkc_backend.Data.Configurations
         {
             builder.ToTable("BKC_Trip");
             builder.HasKey(x => x.Id);
-            builder.Property<string>(x => x.Id).ValueGeneratedOnAdd();
-            builder.Property<string>(x => x.DriverId);
-            builder.Property<string>(x => x.CarId);
-            builder.Property<string>(x => x.MovingDate);
-            builder.Property<string>(x => x.ReturningDate);
-            builder.Property<string>(x => x.NoteByAdmin);
-            builder.Property<bool>(x => x.Status);
+            builder.Property<int>(x => x.Id).ValueGeneratedOnAdd();
+            builder.Property<bool>(x => x.IsFinish);
+            builder.Property<string>(x => x.StartDate).HasColumnType("nvarchar(20)");
+            builder.Property<string>(x => x.FromLocation).HasColumnType("nvarchar(100)");
+            builder.Property<string>(x => x.ToLocation).HasColumnType("nvarchar(100)");
+            builder.Property<string>(x => x.NoteByAdmin).HasColumnType("nvarchar(100)");
+
+            builder.Property<int>(x => x.CarId);
             builder.Ignore(x => x.Car);
+
+            builder.Property<int>(x => x.DriverId);
             builder.Ignore(x => x.Driver);
-            builder.Ignore(x => x.BookingResults);
+
+            builder.Property<int>(x => x.TicketTripId);
+            builder.Ignore(x => x.TicketTrips);
         }
     }
 }

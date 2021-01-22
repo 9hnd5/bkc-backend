@@ -13,10 +13,10 @@ namespace bkc_backend.Data.Configurations
         {
             builder.ToTable("BKC_Role");
             builder.HasKey(r => r.Id);
-            builder.Property<string>(x => x.Id).ValueGeneratedOnAdd();
-            builder.Property<string>(r => r.Name);
+            builder.Property<int>(x => x.Id).ValueGeneratedOnAdd();
+            builder.Property<string>(r => r.Name).HasColumnType("nvarchar(30)");
             builder.Ignore(x => x.RoleUser);
-            builder.HasData(new Role { Id = "2", Name = "Admin" }, new Role { Id = "3", Name = "Member" }, new Role {Id="1", Name="SuperAdmin" });
+            builder.HasData(new Role { Id = 2, Name = "Admin" }, new Role { Id = 3, Name = "Member" }, new Role {Id=1, Name="SuperAdmin" });
         }
     }
 }

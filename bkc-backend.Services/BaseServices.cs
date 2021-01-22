@@ -17,7 +17,7 @@ namespace bkc_backend.Services
         public void Remove(T entity);
         public void RemoveRange(List<T> entities);
         public List<T> GetAll();
-        public T GetById(string id);
+        public T GetById(int id);
     }
     public class BaseServices<T> : IBaseServices<T> where T : BaseEntity
     {
@@ -45,7 +45,7 @@ namespace bkc_backend.Services
             return _entity.ToList();
         }
 
-        public T GetById(string id)
+        public T GetById(int id)
         {
             return _entity.FirstOrDefault(x => x.Id == id);
         }

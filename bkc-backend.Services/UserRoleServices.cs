@@ -11,9 +11,6 @@ namespace bkc_backend.Services
     {
         public RoleUser GetUserRoleByUserId(string userId);
     }
-
-
-
     public class UserRoleServices : BaseServices<RoleUser>, IUserRoleServices
     {
         public UserRoleServices(BookingCarDbContext context) : base(context)

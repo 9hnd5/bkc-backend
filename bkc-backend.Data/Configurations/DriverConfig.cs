@@ -15,11 +15,49 @@ namespace bkc_backend.Data.Configurations
         {
             builder.ToTable("BKC_Driver");
             builder.HasKey(x => x.Id);
-            builder.Property<string>(x => x.Id).ValueGeneratedOnAdd();
-            builder.Property<string>(x => x.Name);
-            builder.Property<string>(x => x.Phone);
-            builder.Property<string>(x => x.Email);
+            builder.Property<int>(x => x.Id).ValueGeneratedOnAdd();
+            builder.Property<string>(x => x.EmployeeId).HasColumnType("nvarchar(30)");
+            builder.Property<string>(x => x.EmployeeName).HasColumnType("nvarchar(30)");
+            builder.Property<string>(x => x.EmployeePhone).HasColumnType("nvarchar(15)");
+            builder.Property<string>(x => x.EmployeeEmail).HasColumnType("nvarchar(50)");
+            builder.Property<string>(x => x.EmployeeBuId).HasColumnType("nvarchar(50)");
+            builder.Property<string>(x => x.EmployeeBuName).HasColumnType("nvarchar(30)");
+            builder.Property<int>(x => x.CarId);
             builder.Ignore(x => x.Car);
+            builder.HasData(new Driver()
+            {
+                Id = 2001,
+                EmployeeId = "602748",
+                EmployeeName = "Nguyễn Văn Tài",
+                EmployeePhone = "0934773645",
+                EmployeeEmail = "abc@gmail.com",
+                EmployeeBuId = "300000001732966",
+                EmployeeBuName = "H.O",
+                CarId = 1001
+            },
+            new Driver()
+            {
+                Id = 2002,
+                EmployeeId = "102144",
+                EmployeeEmail = "abc@gmail.com",
+                EmployeeName = "Trần Văn Cường",
+                EmployeePhone = "0334773235",
+                EmployeeBuId = "300000001732966",
+                EmployeeBuName = "H.O",
+                CarId = 1002
+            },
+            new Driver()
+            {
+                Id = 2003,
+                EmployeeId = "104077",
+                EmployeeEmail = "abc@gmail.com",
+                EmployeeName = "Nguyễn Thị Hoa",
+                EmployeePhone = "0884773235",
+                EmployeeBuId = "300000001732966",
+                EmployeeBuName = "H.O",
+                CarId = 1003
+            }
+            );
         }
     }
 }

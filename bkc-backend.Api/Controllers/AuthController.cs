@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using bkc_backend.Controller.Model;
 using bkc_backend.Controller.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using bkc_backend.Services;
-using bkc_backend.Services.EmployeeServices;
 using bkc_backend.Data.Entities;
-using bkc_backend.Api.Model;
+using bkc_backend.Services.EmployeeServices;
+using bkc_backend.Controller.ViewModel.Request;
+using bkc_backend.Api.ViewModel.Response;
 
 namespace bkc_backend.Controller.Controllers
 {
@@ -53,8 +53,16 @@ namespace bkc_backend.Controller.Controllers
             }
             emp.Role = role.Name;
             string token = _token.Create(emp.Name, role.Name);
-            AuthResponse response = new AuthResponse() { Token = token, User = emp };
+            AuthResponse response = new AuthResponse() { Token = token, Employee = emp };
             return Ok(response);
+        }
+
+        [AllowAnonymous]
+        [Route("api/bkc/authenticate1")]
+        [HttpGet]
+        public IActionResult Authenticate1()
+        {
+            return Ok("helllo");
         }
     }
 }

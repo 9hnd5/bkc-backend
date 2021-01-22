@@ -5381,19 +5381,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HuyNguyen\\.nuget\\packages\\": {}
+    "C:\\Users\\huy.ndinh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
+      "projectUniqueName": "D:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
       "projectName": "bkc-backend.Api",
-      "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
-      "packagesPath": "C:\\Users\\HuyNguyen\\.nuget\\packages\\",
-      "outputPath": "F:\\Project\\bkc-backend\\bkc-backend.Api\\obj\\",
+      "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
+      "packagesPath": "C:\\Users\\huy.ndinh\\.nuget\\packages\\",
+      "outputPath": "D:\\Project\\bkc-backend\\bkc-backend.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\HuyNguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\huy.ndinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5407,8 +5407,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj": {
-              "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj"
+            "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj": {
+              "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj"
             }
           }
         }

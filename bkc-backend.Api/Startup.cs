@@ -42,7 +42,8 @@ namespace bkc_backend.Api
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                                   builder =>
                                   {
-                                      builder.WithOrigins("https://localhost:3000", "http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
+                                      //builder.WithOrigins("https://localhost:3000", "http://localhost:3000").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+                                      builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
                                   });
             });
             //var mapperConfig = new MapperConfiguration(mc => {
@@ -59,14 +60,15 @@ namespace bkc_backend.Api
             services.AddControllers();
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<ICreateToken, CreateToken>();
-            services.AddScoped<IUserRoleServices, UserRoleServices>();
-            services.AddScoped<IRoleServices, RoleServices>();
             services.AddScoped<IEmployeeServices, EmployeeServices>();
-            services.AddScoped<IBookingInforServices, BookingInforServices>();
-            services.AddScoped<IRelatePersonServices, RelatePersonServices>();
-            services.AddScoped<IBookingResultServices, BookingResultServices>();
-            services.AddScoped<IPickupLocationServices, PickupLocationServices>();
+            services.AddScoped<IRoleServices, RoleServices>();
+            services.AddScoped<IUserRoleServices, UserRoleServices>();
+            services.AddScoped<ITicketSerivces, TicketServices>();
+            services.AddScoped<IRelatedPeopleServices, RelatedPeopleServices>();
+            services.AddScoped<ILocationServices, LocationServices>();
             services.AddScoped<IParticipantServices, ParticipantServices>();
+            services.AddScoped<IDriverServices, DriverServices>();
+            services.AddScoped<ICarServices, CarServices>();
             var key = Encoding.UTF8.GetBytes(Configuration["Key"]);
             services.AddAuthentication(x =>
             {

@@ -17,26 +17,26 @@ namespace bkc_backend.Data
         {
             builder.ApplyConfiguration(new RoleConfig());
             builder.ApplyConfiguration(new RoleUserConfig());
-            builder.ApplyConfiguration(new BookingInforConfig());
-            builder.ApplyConfiguration(new BookingResultConfig());
+            builder.ApplyConfiguration(new TicketConfig());
             builder.ApplyConfiguration(new CarConfig());
             builder.ApplyConfiguration(new DriverConfig());
             builder.ApplyConfiguration(new ParticipantConfig());
-            builder.ApplyConfiguration(new PickupLocationConfig());
+            builder.ApplyConfiguration(new LocationConfig());
             builder.ApplyConfiguration(new RelatePersonConfig());
             builder.ApplyConfiguration(new TripConfig());
+            builder.ApplyConfiguration(new TicketTripConfig());
         }
 
         public DbSet<Role> Roles { get; set; }
         public DbSet<RoleUser> RoleUsers { get; set; }
-        public DbSet<BookingInfor> BookingInfors { get; set; }
-        public DbSet<BookingResult> BookingResults { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Driver> Drivers { get; set; }
         public DbSet<Participant> Participants { get; set; }
-        public DbSet<PickupLocation> PickupLocations { get; set; }
-        public DbSet<RelatePerson> RelatePersons { get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<RelatedPeople> RelatedPeoples { get; set; }
         public DbSet<Trip> Trips { get; set; }
+        public DbSet<TicketTrip> TicketTrips { get; set; }
 
     }
 }

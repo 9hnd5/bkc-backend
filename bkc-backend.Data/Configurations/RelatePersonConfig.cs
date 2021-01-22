@@ -9,18 +9,19 @@ using System.Threading.Tasks;
 
 namespace bkc_backend.Data.Configurations
 {
-    public class RelatePersonConfig : IEntityTypeConfiguration<RelatePerson>
+    public class RelatePersonConfig : IEntityTypeConfiguration<RelatedPeople>
     {
-        public void Configure(EntityTypeBuilder<RelatePerson> builder)
+        public void Configure(EntityTypeBuilder<RelatedPeople> builder)
         {
-            builder.ToTable("BKC_RelatePerson");
+            builder.ToTable("BKC_RelatedPeople");
             builder.HasKey(x => x.Id);
-            builder.Property<string>(x => x.Id).ValueGeneratedOnAdd();
-            builder.Property<string>(x => x.BookingInforId);
-            builder.Property<string>(x => x.EmployeeId);
-            builder.Property<string>(x => x.EmployeeName);
-            builder.Property<string>(x => x.EmployeeEmail);
-            builder.Ignore(x => x.BookingInfor);
+            builder.Property<int>(x => x.Id).ValueGeneratedOnAdd();
+            builder.Property<string>(x => x.EmployeeId).HasColumnType("nvarchar(30)");
+            builder.Property<string>(x => x.EmployeeName).HasColumnType("nvarchar(30)");
+            builder.Property<string>(x => x.EmployeeEmail).HasColumnType("nvarchar(50)");
+
+            builder.Property<int>(x => x.TicketId);
+            builder.Ignore(x => x.Ticket);
         }
     }
 }

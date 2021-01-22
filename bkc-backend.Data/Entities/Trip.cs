@@ -8,15 +8,20 @@ namespace bkc_backend.Data.Entities
 {
     public class Trip : BaseEntity
     {
-        public string DriverId { get; set; }
-        public string CarId { get; set; }
-        public string MovingDate { get; set; }
-        public string ReturningDate { get; set; }
+        public bool IsFinish { get; set; }
+        public string StartDate { get; set; }
+        public string FromLocation { get; set; }
+        public string ToLocation { get; set; }
         public string NoteByAdmin { get; set; }
-        public bool Status { get; set; }
+
+        public int TicketTripId { get; set; }
+        public List<TicketTrip> TicketTrips { get; set; }
+
+        public int CarId { get; set; }
         public Car Car { get; set; }
+
+        public int DriverId { get; set; }
         public Driver Driver { get; set; }
-        public List<BookingResult> BookingResults { get; set; }
 
     }
 }
