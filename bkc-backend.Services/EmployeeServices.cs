@@ -18,6 +18,7 @@ namespace bkc_backend.Services.EmployeeServices
         public string Email { get; set; }
         public string LineManagerId { get; set; }
         public string LineManagerName { get; set; }
+        public string LineManagerEmail { get; set; }
     }
     public interface IEmployeeServices
     {
@@ -64,6 +65,7 @@ namespace bkc_backend.Services.EmployeeServices
                     var lineManager = GetEmployeeById(employee.LineManagerId);
                     if (lineManager == null) return employee;
                     employee.LineManagerName = lineManager.Name;
+                    employee.LineManagerEmail = lineManager.Email;
                     return employee;
                 }
                 catch (Exception err)

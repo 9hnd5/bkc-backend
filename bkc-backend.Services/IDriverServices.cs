@@ -12,6 +12,8 @@ namespace bkc_backend.Services
     public interface IDriverServices: IBaseServices<Driver>
     {
         public List<Driver> GetDriverByBuId(string buId);
+        public void UpdateDriver(Driver driver);
+        public List<Driver> GetDrivers();
     }
     public class DriverServices: BaseServices<Driver>, IDriverServices
     {
@@ -30,6 +32,33 @@ namespace bkc_backend.Services
                 driver.Car = car;
             }
             return drivers;
+        }
+
+        public List<Driver> GetDrivers()
+        {
+            var drivers = GetAll();
+            foreach(var driver in drivers)
+            {
+                var car = _carServices.GetById(driver.CarId);
+                driver.Car = car;
+            }
+            return drivers;
+        }
+
+        public void UpdateDriver(Driver driver)
+        {
+            var driverEntity = GetById(driver.Id);
+            if(driverEntity == null)
+            {
+                return;
+            }
+            driverEntity.EmployeeId = driver.EmployeeId;
+            driverEntity.EmployeeName = driver.EmployeeName;
+            driverEntity.EmployeePhone = driver.EmployeePhone;
+            driverEntity.EmployeeBuId = driver.EmployeeBuId;
+            driverEntity.EmployeeBuName = driver.EmployeeBuName;
+            driverEntity.CarId = driver.CarId;
+            _context.SaveChanges();
         }
     }
 }

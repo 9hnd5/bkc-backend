@@ -22,7 +22,7 @@ namespace bkc_backend.Api.ViewModel.Request
         public string ToLocation { get; set; }
         public int TotalParticipant { get; set; }
         public string ReasonBooking { get; set; }
-        public string TicketStatus { get; set; }
+        public string Status { get; set; }
 
         public List<LocationAddRequest> Locations { get; set; }
         public List<RelatedPeopleAddRequest> RelatedPeoples { get; set; }

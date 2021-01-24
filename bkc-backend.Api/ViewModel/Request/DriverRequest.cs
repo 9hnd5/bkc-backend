@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace bkc_backend.Api.ViewModel.Response
+namespace bkc_backend.Api.ViewModel.Request
 {
-    public class DriverResponse
+    public class DriverRequest
     {
         public int Id { get; set; }
         public string EmployeeId { get; set; }
@@ -15,6 +15,6 @@ namespace bkc_backend.Api.ViewModel.Response
         public string EmployeeBuId { get; set; }
         public string EmployeeBuName { get; set; }
         public int CarId { get; set; }
-        public CarResponse Car { get; set; }
+        public CarRequest Car { get; set; }
     }
 }

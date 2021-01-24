@@ -15,8 +15,8 @@ namespace bkc_backend.Data.Configurations
             builder.HasKey(e => e.Id);
             builder.Property<int>(x => x.Id).ValueGeneratedOnAdd();
             builder.Property<int>(e => e.RoleId);
-            builder.Property<string>(e => e.EmployeeId).HasColumnType("nvarchar(30)");
-            builder.Property<string>(e => e.EmployeeBuId).HasColumnType("nvarchar(50)");
+            builder.Property<string>(e => e.EmployeeId).HasColumnType("nvarchar(100)");
+            builder.Property<string>(e => e.EmployeeBuId).HasColumnType("nvarchar(100)");
             builder.Ignore(x => x.Role);
             builder.HasData(
                 new RoleUser { Id = 1, RoleId = 1, EmployeeId = "102144", EmployeeBuId = "300000001732966" },

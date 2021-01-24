@@ -30,7 +30,9 @@ namespace bkc_backend.Api.Helpers
             CreateMap<Participant, ParticipantUpdateRequest>().ReverseMap();
 
             CreateMap<Driver, DriverResponse>().ReverseMap();
+            CreateMap<Driver, DriverRequest>().ReverseMap();
             CreateMap<Car, CarResponse>().ReverseMap();
+            CreateMap<Car, CarRequest>().ReverseMap();
 
 
         }

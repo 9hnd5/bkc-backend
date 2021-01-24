@@ -9,7 +9,7 @@ using bkc_backend.Data;
 namespace bkc_backend.Data.Migrations
 {
     [DbContext(typeof(BookingCarDbContext))]
-    [Migration("20210122102130_initial")]
+    [Migration("20210124051704_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,19 +31,28 @@ namespace bkc_backend.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("BuId")
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("BuName")
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("CurrentLocation")
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<bool>("IsBooked")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Manufactured")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Number")
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TotalSeat")
                         .HasColumnType("int");
@@ -51,38 +60,6 @@ namespace bkc_backend.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("BKC_Car");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1001,
-                            AvailableSeat = 12,
-                            BuId = "300000001732966",
-                            BuName = "H.O",
-                            Number = "GOLD-XYZZ11",
-                            Status = false,
-                            TotalSeat = 12
-                        },
-                        new
-                        {
-                            Id = 1002,
-                            AvailableSeat = 7,
-                            BuId = "300000001732966",
-                            BuName = "H.O",
-                            Number = "GOLD-9X11232",
-                            Status = false,
-                            TotalSeat = 7
-                        },
-                        new
-                        {
-                            Id = 1003,
-                            AvailableSeat = 14,
-                            BuId = "300000001732966",
-                            BuName = "H.O",
-                            Number = "GOLD-9X27363",
-                            Status = false,
-                            TotalSeat = 14
-                        });
                 });
 
             modelBuilder.Entity("bkc_backend.Data.Entities.Driver", b =>
@@ -96,10 +73,10 @@ namespace bkc_backend.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("EmployeeBuId")
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("EmployeeBuName")
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("EmployeeEmail")
                         .HasColumnType("nvarchar(50)");
@@ -116,41 +93,6 @@ namespace bkc_backend.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("BKC_Driver");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 2001,
-                            CarId = 1001,
-                            EmployeeBuId = "300000001732966",
-                            EmployeeBuName = "H.O",
-                            EmployeeEmail = "abc@gmail.com",
-                            EmployeeId = "602748",
-                            EmployeeName = "Nguyễn Văn Tài",
-                            EmployeePhone = "0934773645"
-                        },
-                        new
-                        {
-                            Id = 2002,
-                            CarId = 1002,
-                            EmployeeBuId = "300000001732966",
-                            EmployeeBuName = "H.O",
-                            EmployeeEmail = "abc@gmail.com",
-                            EmployeeId = "102144",
-                            EmployeeName = "Trần Văn Cường",
-                            EmployeePhone = "0334773235"
-                        },
-                        new
-                        {
-                            Id = 2003,
-                            CarId = 1003,
-                            EmployeeBuId = "300000001732966",
-                            EmployeeBuName = "H.O",
-                            EmployeeEmail = "abc@gmail.com",
-                            EmployeeId = "104077",
-                            EmployeeName = "Nguyễn Thị Hoa",
-                            EmployeePhone = "0884773235"
-                        });
                 });
 
             modelBuilder.Entity("bkc_backend.Data.Entities.Location", b =>
@@ -274,10 +216,10 @@ namespace bkc_backend.Data.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("EmployeeBuId")
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("EmployeeId")
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("EmployeeName")
                         .HasColumnType("nvarchar(max)");
@@ -333,10 +275,10 @@ namespace bkc_backend.Data.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("EmployeeBuId")
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("EmployeeBuName")
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("EmployeeDepartment")
                         .HasColumnType("nvarchar(30)");

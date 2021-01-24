@@ -27,7 +27,7 @@ namespace bkc_backend.Api.ViewModel.Response
         public string ApproverId { get; set; }
         public string ApproveDate { get; set; }
         public string NoteByApprover { get; set; }
-        public string TicketStatus { get; set; }
+        public string Status { get; set; }
         public List<LocationHistoryResponse> Locations { get; set; }
         public List<RelatedPeopleHistoryResponse> RelatedPeoples { get; set; }
     }

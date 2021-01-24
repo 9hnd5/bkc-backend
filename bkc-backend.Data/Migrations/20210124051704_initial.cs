@@ -12,12 +12,15 @@ namespace bkc_backend.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Manufactured = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Number = table.Column<string>(type: "nvarchar(20)", nullable: true),
                     TotalSeat = table.Column<int>(type: "int", nullable: false),
                     AvailableSeat = table.Column<int>(type: "int", nullable: false),
-                    BuId = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    BuName = table.Column<string>(type: "nvarchar(30)", nullable: true),
-                    Status = table.Column<bool>(type: "bit", nullable: false),
+                    BuId = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    BuName = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsBooked = table.Column<bool>(type: "bit", nullable: false),
                     CurrentLocation = table.Column<string>(type: "nvarchar(100)", nullable: true)
                 },
                 constraints: table =>
@@ -35,8 +38,8 @@ namespace bkc_backend.Data.Migrations
                     EmployeeName = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     EmployeePhone = table.Column<string>(type: "nvarchar(15)", nullable: true),
                     EmployeeEmail = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    EmployeeBuId = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    EmployeeBuName = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    EmployeeBuId = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    EmployeeBuName = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     CarId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -114,9 +117,9 @@ namespace bkc_backend.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    EmployeeId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    EmployeeId = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     EmployeeName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeeBuId = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    EmployeeBuId = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     RoleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -135,8 +138,8 @@ namespace bkc_backend.Data.Migrations
                     EmployeeLineManagerId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     EmployeeLineManagerName = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     EmployeePhone = table.Column<string>(type: "nvarchar(15)", nullable: true),
-                    EmployeeBuId = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    EmployeeBuName = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    EmployeeBuId = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    EmployeeBuName = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     EmployeeDepartment = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     CreateDate = table.Column<string>(type: "nvarchar(20)", nullable: true),
                     StartDate = table.Column<string>(type: "nvarchar(20)", nullable: true),
@@ -189,26 +192,6 @@ namespace bkc_backend.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BKC_Trip", x => x.Id);
-                });
-
-            migrationBuilder.InsertData(
-                table: "BKC_Car",
-                columns: new[] { "Id", "AvailableSeat", "BuId", "BuName", "CurrentLocation", "Number", "Status", "TotalSeat" },
-                values: new object[,]
-                {
-                    { 1001, 12, "300000001732966", "H.O", null, "GOLD-XYZZ11", false, 12 },
-                    { 1002, 7, "300000001732966", "H.O", null, "GOLD-9X11232", false, 7 },
-                    { 1003, 14, "300000001732966", "H.O", null, "GOLD-9X27363", false, 14 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "BKC_Driver",
-                columns: new[] { "Id", "CarId", "EmployeeBuId", "EmployeeBuName", "EmployeeEmail", "EmployeeId", "EmployeeName", "EmployeePhone" },
-                values: new object[,]
-                {
-                    { 2001, 1001, "300000001732966", "H.O", "abc@gmail.com", "602748", "Nguyễn Văn Tài", "0934773645" },
-                    { 2002, 1002, "300000001732966", "H.O", "abc@gmail.com", "102144", "Trần Văn Cường", "0334773235" },
-                    { 2003, 1003, "300000001732966", "H.O", "abc@gmail.com", "104077", "Nguyễn Thị Hoa", "0884773235" }
                 });
 
             migrationBuilder.InsertData(

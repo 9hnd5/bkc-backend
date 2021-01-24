@@ -69,6 +69,7 @@ namespace bkc_backend.Api
             services.AddScoped<IParticipantServices, ParticipantServices>();
             services.AddScoped<IDriverServices, DriverServices>();
             services.AddScoped<ICarServices, CarServices>();
+            services.AddScoped<IBusinessUnitSerivces, BusinessUnitServices>();
             var key = Encoding.UTF8.GetBytes(Configuration["Key"]);
             services.AddAuthentication(x =>
             {

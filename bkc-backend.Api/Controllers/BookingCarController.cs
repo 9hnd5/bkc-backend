@@ -21,13 +21,17 @@ namespace bkc_backend.Controller.Controllers
         public IEmployeeServices _employeeServices;
         public ITicketSerivces _ticketSerivces;
         public IDriverServices _driverServices;
+        public ICarServices _carServices;
+        public IBusinessUnitSerivces _businessUnitServices;
         public BookingCarController(IMapper mapper, IEmployeeServices employeeServices, ITicketSerivces ticketSerivces,
-            IDriverServices driverServices)
+            IDriverServices driverServices, ICarServices carServices, IBusinessUnitSerivces businessUnitSerivces)
         {
             _mapper = mapper;
             _employeeServices = employeeServices;
             _ticketSerivces = ticketSerivces;
             _driverServices = driverServices;
+            _carServices = carServices;
+            _businessUnitServices = businessUnitSerivces;
         }
         [Route("api/employees/{name}")]
         [HttpGet]
@@ -94,6 +98,106 @@ namespace bkc_backend.Controller.Controllers
             var driverResponses = _mapper.Map<List<DriverResponse>>(drivers);
             return Ok(driverResponses);
         }
+    
+        [Route("api/cars")]
+        [HttpGet]
+        public IActionResult GetCars()
+        {
+            var cars = _carServices.GetAll();
+            var carResponses = _mapper.Map<List<CarResponse>>(cars);
+            return Ok(carResponses);
+        }
+
+        [Route("api/cars/{id}")]
+        [HttpGet]
+        public IActionResult GetCarById(int id)
+        {
+            var car = _carServices.GetById(id);
+            if(car == null)
+            {
+                return NotFound("Load Car Fail");
+            }
+            var carResponse = _mapper.Map<CarResponse>(car);
+            return Ok(carResponse);
+        }
+
+        [Route("api/cars/")]
+        [HttpPost]
+        public IActionResult AddCar([FromBody]CarRequest carRequest)
+        {
+            var car = _mapper.Map<Car>(carRequest);
+            _carServices.Add(car);
+            var carResponse = _mapper.Map<CarResponse>(car);
+            return Ok(carResponse);
+        }
+        [Route("api/cars/")]
+        [HttpPut]
+        public IActionResult UpdateCar([FromBody] CarRequest carRequest)
+        {
+            var car = _mapper.Map<Car>(carRequest);
+            _carServices.UpdateCar(car);
+            return Ok();
+        }
+        [Route("api/cars/")]
+        [HttpDelete]
+        public IActionResult DeleteCar([FromBody] CarRequest carRequest)
+        {
+            var car = _mapper.Map<Car>(carRequest);
+            _carServices.Remove(car);
+            return Ok();
+        }
+
+        [Route("api/drivers")]
+        [HttpGet]
+        public IActionResult GetDrivers()
+        {
+            var drivers = _driverServices.GetDrivers();
+            var driverResponse = _mapper.Map<List<DriverResponse>>(drivers);
+            return Ok(driverResponse);
+        }
+        [Route("api/drivers")]
+        [HttpPost]
+        public IActionResult AddDriver([FromBody] DriverRequest driverRequest)
+        {
+            var driver = _mapper.Map<Driver>(driverRequest);
+            _driverServices.Add(driver);
+            var driverResponse = _mapper.Map<DriverResponse>(driver);
+            return Ok(driverResponse);
+        }
+        [Route("api/drivers")]
+        [HttpPut]
+        public IActionResult UpdateDriver([FromBody] DriverRequest driverRequest)
+        {
+            var driver = _mapper.Map<Driver>(driverRequest);
+            _driverServices.UpdateDriver(driver);
+            return Ok();
+        }
+        [Route("api/drivers")]
+        [HttpDelete]
+        public IActionResult DeleteDriver([FromBody] DriverRequest driverRequest)
+        {
+            var driver = _mapper.Map<Driver>(driverRequest);
+            _driverServices.Remove(driver);
+            return Ok();
+        }
+
+        [Route("api/business-units/{buName}")]
+        [HttpGet]
+        public IActionResult GetBuByBuName(string buName)
+        {
+            var bu = _businessUnitServices.GetBusinessUnitsByName(buName);
+            return Ok(bu);
+        }
+
+        [Route("api/business-units/")]
+        [HttpGet]
+        public IActionResult GetBusinessUnits()
+        {
+            var bus = _businessUnitServices.GetBusinessUnits();
+            return Ok(bus);
+        }
+
+
     }
 
 }
