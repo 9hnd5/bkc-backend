@@ -9,8 +9,8 @@ using bkc_backend.Data;
 namespace bkc_backend.Data.Migrations
 {
     [DbContext(typeof(BookingCarDbContext))]
-    [Migration("20210124051704_initial")]
-    partial class initial
+    [Migration("20210128082238_inita")]
+    partial class inita
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -244,7 +244,7 @@ namespace bkc_backend.Data.Migrations
                             Id = 2,
                             EmployeeBuId = "300000001732966",
                             EmployeeId = "104077",
-                            RoleId = 3
+                            RoleId = 1
                         },
                         new
                         {
@@ -304,10 +304,10 @@ namespace bkc_backend.Data.Migrations
                     b.Property<string>("FromLocation")
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("NoteByApprover")
+                    b.Property<string>("ReasonBooking")
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("ReasonBooking")
+                    b.Property<string>("ReasonReject")
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("StartDate")
@@ -315,9 +315,6 @@ namespace bkc_backend.Data.Migrations
 
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(10)");
-
-                    b.Property<int>("TicketTripId")
-                        .HasColumnType("int");
 
                     b.Property<string>("ToLocation")
                         .HasColumnType("nvarchar(100)");
@@ -367,16 +364,16 @@ namespace bkc_backend.Data.Migrations
                     b.Property<bool>("IsFinish")
                         .HasColumnType("bit");
 
-                    b.Property<string>("NoteByAdmin")
+                    b.Property<string>("NoteForDriver")
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("StartDate")
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("TicketTripId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ToLocation")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Type")
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");

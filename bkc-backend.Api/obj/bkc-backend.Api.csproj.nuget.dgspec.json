@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj": {}
+    "D:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj": {}
   },
   "projects": {
-    "F:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj": {
+    "D:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
+        "projectUniqueName": "D:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
         "projectName": "bkc-backend.Api",
-        "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
-        "packagesPath": "C:\\Users\\HuyNguyen\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\bkc-backend\\bkc-backend.Api\\obj\\",
+        "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
+        "packagesPath": "C:\\Users\\huy.ndinh\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\bkc-backend\\bkc-backend.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HuyNguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huy.ndinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj": {
-                "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj"
+              "D:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj": {
+                "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj"
+              },
+              "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj": {
+                "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj"
               }
             }
           }
@@ -47,6 +50,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[8.1.0, )"
+            },
+            "Grpc.Core": {
+              "target": "Package",
+              "version": "[2.35.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -75,17 +82,17 @@
         }
       }
     },
-    "F:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj": {
+    "D:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj",
+        "projectUniqueName": "D:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj",
         "projectName": "bkc-backend.Data",
-        "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj",
-        "packagesPath": "C:\\Users\\HuyNguyen\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\bkc-backend\\bkc-backend.Data\\obj\\",
+        "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj",
+        "packagesPath": "C:\\Users\\huy.ndinh\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\bkc-backend\\bkc-backend.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HuyNguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huy.ndinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -147,17 +154,74 @@
         }
       }
     },
-    "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj": {
+    "D:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj",
-        "projectName": "bkc-backend.Services",
-        "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj",
-        "packagesPath": "C:\\Users\\HuyNguyen\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\bkc-backend\\bkc-backend.Services\\obj\\",
+        "projectUniqueName": "D:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj",
+        "projectName": "bkc-backend.RazorEmail",
+        "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj",
+        "packagesPath": "C:\\Users\\huy.ndinh\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HuyNguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huy.ndinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj",
+        "projectName": "bkc-backend.Services",
+        "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj",
+        "packagesPath": "C:\\Users\\huy.ndinh\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\bkc-backend\\bkc-backend.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\huy.ndinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -171,8 +235,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "F:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj": {
-                "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj"
+              "D:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj": {
+                "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj"
               }
             }
           }
@@ -190,6 +254,14 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[10.1.1, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[2.10.1, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             }
           },
           "imports": [

@@ -20,7 +20,8 @@ namespace bkc_backend.Data.Configurations
             builder.Property<string>(x => x.StartDate).HasColumnType("nvarchar(20)");
             builder.Property<string>(x => x.FromLocation).HasColumnType("nvarchar(100)");
             builder.Property<string>(x => x.ToLocation).HasColumnType("nvarchar(100)");
-            builder.Property<string>(x => x.NoteByAdmin).HasColumnType("nvarchar(100)");
+            builder.Property<string>(x => x.Type).HasColumnType("nvarchar(100)");
+            builder.Property<string>(x => x.NoteForDriver).HasColumnType("nvarchar(100)");
 
             builder.Property<int>(x => x.CarId);
             builder.Ignore(x => x.Car);
@@ -28,7 +29,6 @@ namespace bkc_backend.Data.Configurations
             builder.Property<int>(x => x.DriverId);
             builder.Ignore(x => x.Driver);
 
-            builder.Property<int>(x => x.TicketTripId);
             builder.Ignore(x => x.TicketTrips);
         }
     }

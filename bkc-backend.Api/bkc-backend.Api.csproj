@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+    <PackageReference Include="Grpc.Core" Version="2.35.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\bkc-backend.RazorEmail\bkc-backend.RazorEmail.csproj" />
     <ProjectReference Include="..\bkc-backend.Services\bkc-backend.Services.csproj" />
   </ItemGroup>
 

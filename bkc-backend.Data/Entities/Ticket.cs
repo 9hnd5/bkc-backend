@@ -26,12 +26,11 @@ namespace bkc_backend.Data.Entities
         public string ApproverName { get; set; }
         public string ApproverId { get; set; }
         public string ApprovedDate { get; set; }
-        public string NoteByApprover { get; set; }
+        public string ReasonReject { get; set; }
         public string Status { get; set; }
         public List<Location> Locations { get; set; }
         public List<RelatedPeople> RelatedPeoples { get; set; }
 
-        public int TicketTripId { get; set; }
         public List<TicketTrip> TicketTrips { get; set; }
 
     }

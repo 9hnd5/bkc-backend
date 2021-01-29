@@ -26,6 +26,7 @@ namespace bkc_backend.Api.ViewModel.Request
         public string ApproverName { get; set; }
         public string ApproverId { get; set; }
         public string ApprovedDate { get; set; }
+        public string ReasonReject { get; set; }
         public List<LocationUpdateRequest> Locations { get; set; }
         public List<RelatedPeopleUpdateRequest> RelatedPeoples { get; set; }
     }

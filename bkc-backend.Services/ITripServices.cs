@@ -10,12 +10,18 @@ namespace bkc_backend.Services
 {
     public interface ITripServices: IBaseServices<Trip>
     {
+        public List<Trip> GetTripsByIsFinish(bool isFinish);
     }
     public class TripServices: BaseServices<Trip>, ITripServices
     {
         public TripServices(BookingCarDbContext context): base(context)
         {
 
+        }
+
+        public List<Trip> GetTripsByIsFinish(bool isFinish)
+        {
+            return _context.Trips.Where(x => x.IsFinish == isFinish).ToList();
         }
     }
 }

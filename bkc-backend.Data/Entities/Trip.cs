@@ -12,9 +12,9 @@ namespace bkc_backend.Data.Entities
         public string StartDate { get; set; }
         public string FromLocation { get; set; }
         public string ToLocation { get; set; }
-        public string NoteByAdmin { get; set; }
+        public string NoteForDriver { get; set; }
+        public string Type { get; set; }
 
-        public int TicketTripId { get; set; }
         public List<TicketTrip> TicketTrips { get; set; }
 
         public int CarId { get; set; }

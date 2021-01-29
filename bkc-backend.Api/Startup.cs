@@ -7,6 +7,7 @@ using AutoMapper;
 using bkc_backend.Api.Helpers;
 using bkc_backend.Controller.Helpers;
 using bkc_backend.Data;
+using bkc_backend.RazorEmail;
 using bkc_backend.Services;
 using bkc_backend.Services.AutoMapping;
 using bkc_backend.Services.EmployeeServices;
@@ -14,6 +15,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -46,6 +49,11 @@ namespace bkc_backend.Api
                                       builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
                                   });
             });
+            services.AddControllersWithViews();
+            services.AddRazorPages();
+            services.AddOptions();
+            var mailSettings = Configuration.GetSection("MailSettings");
+            services.Configure<MailSettings>(mailSettings);
             //var mapperConfig = new MapperConfiguration(mc => {
             //    mc.AddProfile(new AutoMapping());
             //});
@@ -70,6 +78,12 @@ namespace bkc_backend.Api
             services.AddScoped<IDriverServices, DriverServices>();
             services.AddScoped<ICarServices, CarServices>();
             services.AddScoped<IBusinessUnitSerivces, BusinessUnitServices>();
+            services.AddScoped<ITripServices, TripServices>();
+            services.AddScoped<ITicketTripServices, TicketTripServices>();
+            services.AddScoped<ISendMailServices, SendMailServices>();
+            services.AddScoped<IRazorViewToStringRenderer, RazorViewToStringRenderer>();
+            //services.AddScoped<IRazorViewEngine, RazorViewEngine>();
+            //services.AddScoped<IServiceProvider, ServiceProvider>();
             var key = Encoding.UTF8.GetBytes(Configuration["Key"]);
             services.AddAuthentication(x =>
             {

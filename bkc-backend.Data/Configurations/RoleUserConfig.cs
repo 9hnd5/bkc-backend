@@ -20,7 +20,7 @@ namespace bkc_backend.Data.Configurations
             builder.Ignore(x => x.Role);
             builder.HasData(
                 new RoleUser { Id = 1, RoleId = 1, EmployeeId = "102144", EmployeeBuId = "300000001732966" },
-                new RoleUser { Id = 2, RoleId = 3, EmployeeId = "104077", EmployeeBuId = "300000001732966" },
+                new RoleUser { Id = 2, RoleId = 1, EmployeeId = "104077", EmployeeBuId = "300000001732966" },
                 new RoleUser { Id = 3, RoleId = 1, EmployeeId = "602748", EmployeeBuId = "300000001732979" }
             );
         }

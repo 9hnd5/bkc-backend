@@ -23,8 +23,10 @@ namespace bkc_backend.Controller.Controllers
         public IDriverServices _driverServices;
         public ICarServices _carServices;
         public IBusinessUnitSerivces _businessUnitServices;
+        public ITripServices _tripServices;
         public BookingCarController(IMapper mapper, IEmployeeServices employeeServices, ITicketSerivces ticketSerivces,
-            IDriverServices driverServices, ICarServices carServices, IBusinessUnitSerivces businessUnitSerivces)
+            IDriverServices driverServices, ICarServices carServices, IBusinessUnitSerivces businessUnitSerivces,
+            ITripServices tripServices)
         {
             _mapper = mapper;
             _employeeServices = employeeServices;
@@ -32,6 +34,7 @@ namespace bkc_backend.Controller.Controllers
             _driverServices = driverServices;
             _carServices = carServices;
             _businessUnitServices = businessUnitSerivces;
+            _tripServices = tripServices;
         }
         [Route("api/employees/{name}")]
         [HttpGet]
@@ -197,6 +200,14 @@ namespace bkc_backend.Controller.Controllers
             return Ok(bus);
         }
 
+        [Route("api/trips/{isFinish}")]
+        [HttpGet]
+        public IActionResult GetTripsByIsFinish(bool isFinish)
+        {
+            var trips = _tripServices.GetTripsByIsFinish(isFinish);
+            var tripResponses = _mapper.Map<List<TripResponse>>(trips);
+            return Ok(tripResponses);
+        }
 
     }
 

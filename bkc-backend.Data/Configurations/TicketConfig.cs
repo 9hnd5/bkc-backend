@@ -34,13 +34,12 @@ namespace bkc_backend.Data.Configurations
             builder.Property<string>(x => x.ApproverName).HasColumnType("nvarchar(30)");
             builder.Property<string>(x => x.ApproverId).HasColumnType("nvarchar(30)");
             builder.Property<string>(x => x.ApprovedDate).HasColumnType("nvarchar(20)");
-            builder.Property<string>(x => x.NoteByApprover).HasColumnType("nvarchar(100)");
+            builder.Property<string>(x => x.ReasonReject).HasColumnType("nvarchar(100)");
             builder.Property<string>(x => x.Status).HasColumnType("nvarchar(10)");
 
             builder.Ignore(x => x.Locations);
             builder.Ignore(x => x.RelatedPeoples);
 
-            builder.Property<int>(x => x.TicketTripId);
             builder.Ignore(x => x.TicketTrips);
         }
     }

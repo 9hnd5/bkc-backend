@@ -7,7 +7,7 @@ namespace bkc_backend.Api.ViewModel.Request
 {
     public class TicketTripRequest
     {
-        public List<TripRequest> Trips { get; set; }
+        public TripRequest Trip { get; set; }
         public TicketUpdateRequest Ticket { get; set; }
     }
 }

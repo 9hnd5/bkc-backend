@@ -2,7 +2,7 @@
 
 namespace bkc_backend.Data.Migrations
 {
-    public partial class initial : Migration
+    public partial class inita : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -151,9 +151,8 @@ namespace bkc_backend.Data.Migrations
                     ApproverName = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     ApproverId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     ApprovedDate = table.Column<string>(type: "nvarchar(20)", nullable: true),
-                    NoteByApprover = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(10)", nullable: true),
-                    TicketTripId = table.Column<int>(type: "int", nullable: false)
+                    ReasonReject = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(10)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -184,8 +183,8 @@ namespace bkc_backend.Data.Migrations
                     StartDate = table.Column<string>(type: "nvarchar(20)", nullable: true),
                     FromLocation = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     ToLocation = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    NoteByAdmin = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    TicketTripId = table.Column<int>(type: "int", nullable: false),
+                    NoteForDriver = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    Type = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     CarId = table.Column<int>(type: "int", nullable: false),
                     DriverId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -210,7 +209,7 @@ namespace bkc_backend.Data.Migrations
                 values: new object[,]
                 {
                     { 1, "300000001732966", "102144", null, 1 },
-                    { 2, "300000001732966", "104077", null, 3 },
+                    { 2, "300000001732966", "104077", null, 1 },
                     { 3, "300000001732979", "602748", null, 1 }
                 });
         }
