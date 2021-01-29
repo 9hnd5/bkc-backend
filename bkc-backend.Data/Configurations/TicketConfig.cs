@@ -31,16 +31,17 @@ namespace bkc_backend.Data.Configurations
             builder.Property<string>(x => x.ToLocation).HasColumnType("nvarchar(100)");
             builder.Property<int>(x => x.TotalParticipant);
             builder.Property<string>(x => x.ReasonBooking).HasColumnType("nvarchar(100)");
-            builder.Property<string>(x => x.ApproverName).HasColumnType("nvarchar(30)");
-            builder.Property<string>(x => x.ApproverId).HasColumnType("nvarchar(30)");
-            builder.Property<string>(x => x.ApprovedDate).HasColumnType("nvarchar(20)");
+            builder.Property<string>(x => x.HandlerName).HasColumnType("nvarchar(30)");
+            builder.Property<string>(x => x.HandlerId).HasColumnType("nvarchar(30)");
+            builder.Property<string>(x => x.HandledDate).HasColumnType("nvarchar(20)");
             builder.Property<string>(x => x.ReasonReject).HasColumnType("nvarchar(100)");
             builder.Property<string>(x => x.Status).HasColumnType("nvarchar(10)");
+            builder.Property<bool>(x => x.IsFinish);
+
 
             builder.Ignore(x => x.Locations);
             builder.Ignore(x => x.RelatedPeoples);
-
-            builder.Ignore(x => x.TicketTrips);
+            builder.Ignore(x => x.TicketCars);
         }
     }
 }

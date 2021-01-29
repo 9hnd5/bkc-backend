@@ -2,7 +2,7 @@
 
 namespace bkc_backend.Data.Migrations
 {
-    public partial class inita : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,14 +12,14 @@ namespace bkc_backend.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Manufactured = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Manufactured = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     Number = table.Column<string>(type: "nvarchar(20)", nullable: true),
                     TotalSeat = table.Column<int>(type: "int", nullable: false),
                     AvailableSeat = table.Column<int>(type: "int", nullable: false),
                     BuId = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     BuName = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     IsBooked = table.Column<bool>(type: "bit", nullable: false),
                     CurrentLocation = table.Column<string>(type: "nvarchar(100)", nullable: true)
                 },
@@ -148,11 +148,12 @@ namespace bkc_backend.Data.Migrations
                     ToLocation = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     TotalParticipant = table.Column<int>(type: "int", nullable: false),
                     ReasonBooking = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    ApproverName = table.Column<string>(type: "nvarchar(30)", nullable: true),
-                    ApproverId = table.Column<string>(type: "nvarchar(30)", nullable: true),
-                    ApprovedDate = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    HandlerName = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    HandlerId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    HandledDate = table.Column<string>(type: "nvarchar(20)", nullable: true),
                     ReasonReject = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(10)", nullable: true)
+                    Status = table.Column<string>(type: "nvarchar(10)", nullable: true),
+                    IsFinish = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -160,37 +161,17 @@ namespace bkc_backend.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BKC_TicketTrip",
+                name: "BKC_TicketCar",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TicketId = table.Column<int>(type: "int", nullable: false),
-                    TripId = table.Column<int>(type: "int", nullable: false)
+                    CarId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BKC_TicketTrip", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "BKC_Trip",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IsFinish = table.Column<bool>(type: "bit", nullable: false),
-                    StartDate = table.Column<string>(type: "nvarchar(20)", nullable: true),
-                    FromLocation = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    ToLocation = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    NoteForDriver = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    Type = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    CarId = table.Column<int>(type: "int", nullable: false),
-                    DriverId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BKC_Trip", x => x.Id);
+                    table.PrimaryKey("PK_BKC_TicketCar", x => x.Id);
                 });
 
             migrationBuilder.InsertData(
@@ -198,9 +179,9 @@ namespace bkc_backend.Data.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { 2, "Admin" },
-                    { 3, "Member" },
-                    { 1, "SuperAdmin" }
+                    { 2, "ADMIN" },
+                    { 3, "MEMBER" },
+                    { 1, "SUPERADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -241,10 +222,7 @@ namespace bkc_backend.Data.Migrations
                 name: "BKC_Ticket");
 
             migrationBuilder.DropTable(
-                name: "BKC_TicketTrip");
-
-            migrationBuilder.DropTable(
-                name: "BKC_Trip");
+                name: "BKC_TicketCar");
         }
     }
 }

@@ -23,8 +23,7 @@ namespace bkc_backend.Data
             builder.ApplyConfiguration(new ParticipantConfig());
             builder.ApplyConfiguration(new LocationConfig());
             builder.ApplyConfiguration(new RelatePersonConfig());
-            builder.ApplyConfiguration(new TripConfig());
-            builder.ApplyConfiguration(new TicketTripConfig());
+            builder.ApplyConfiguration(new TicketCarConfig());
         }
 
         public DbSet<Role> Roles { get; set; }
@@ -35,8 +34,7 @@ namespace bkc_backend.Data
         public DbSet<Participant> Participants { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<RelatedPeople> RelatedPeoples { get; set; }
-        public DbSet<Trip> Trips { get; set; }
-        public DbSet<TicketTrip> TicketTrips { get; set; }
+        public DbSet<TicketCar> TicketCars { get; set; }
 
     }
 }

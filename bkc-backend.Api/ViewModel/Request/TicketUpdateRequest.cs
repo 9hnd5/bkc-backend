@@ -23,9 +23,9 @@ namespace bkc_backend.Api.ViewModel.Request
         public int TotalParticipant { get; set; }
         public string ReasonBooking { get; set; }
         public string Status { get; set; }
-        public string ApproverName { get; set; }
-        public string ApproverId { get; set; }
-        public string ApprovedDate { get; set; }
+        public string HandlerName { get; set; }
+        public string HandlerId { get; set; }
+        public string HandledDate { get; set; }
         public string ReasonReject { get; set; }
         public List<LocationUpdateRequest> Locations { get; set; }
         public List<RelatedPeopleUpdateRequest> RelatedPeoples { get; set; }

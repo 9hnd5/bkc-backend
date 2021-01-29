@@ -34,7 +34,9 @@ namespace bkc_backend.Api.Helpers
             CreateMap<Car, CarResponse>().ReverseMap();
             CreateMap<Car, CarRequest>().ReverseMap();
 
-            CreateMap<Trip, TripResponse>().ReverseMap();
+            CreateMap<TicketCar, TicketCarRequest>().ReverseMap();
+            CreateMap<TicketCar, TicketCarResponse>().ReverseMap();
+
 
 
         }

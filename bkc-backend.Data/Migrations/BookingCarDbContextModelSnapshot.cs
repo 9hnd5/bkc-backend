@@ -41,16 +41,16 @@ namespace bkc_backend.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Manufactured")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Number")
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("TotalSeat")
                         .HasColumnType("int");
@@ -192,17 +192,17 @@ namespace bkc_backend.Data.Migrations
                         new
                         {
                             Id = 2,
-                            Name = "Admin"
+                            Name = "ADMIN"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Member"
+                            Name = "MEMBER"
                         },
                         new
                         {
                             Id = 1,
-                            Name = "SuperAdmin"
+                            Name = "SUPERADMIN"
                         });
                 });
 
@@ -260,15 +260,6 @@ namespace bkc_backend.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("ApprovedDate")
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("ApproverId")
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("ApproverName")
-                        .HasColumnType("nvarchar(30)");
-
                     b.Property<string>("CreateDate")
                         .HasColumnType("nvarchar(20)");
 
@@ -302,6 +293,18 @@ namespace bkc_backend.Data.Migrations
                     b.Property<string>("FromLocation")
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("HandledDate")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("HandlerId")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("HandlerName")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<bool>("IsFinish")
+                        .HasColumnType("bit");
+
                     b.Property<string>("ReasonBooking")
                         .HasColumnType("nvarchar(100)");
 
@@ -325,25 +328,7 @@ namespace bkc_backend.Data.Migrations
                     b.ToTable("BKC_Ticket");
                 });
 
-            modelBuilder.Entity("bkc_backend.Data.Entities.TicketTrip", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("TicketId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TripId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BKC_TicketTrip");
-                });
-
-            modelBuilder.Entity("bkc_backend.Data.Entities.Trip", b =>
+            modelBuilder.Entity("bkc_backend.Data.Entities.TicketCar", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -353,30 +338,12 @@ namespace bkc_backend.Data.Migrations
                     b.Property<int>("CarId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DriverId")
+                    b.Property<int>("TicketId")
                         .HasColumnType("int");
-
-                    b.Property<string>("FromLocation")
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<bool>("IsFinish")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("NoteForDriver")
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("StartDate")
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("ToLocation")
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("BKC_Trip");
+                    b.ToTable("BKC_TicketCar");
                 });
 #pragma warning restore 612, 618
         }

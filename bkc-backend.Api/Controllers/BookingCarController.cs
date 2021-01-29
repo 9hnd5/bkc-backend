@@ -23,10 +23,10 @@ namespace bkc_backend.Controller.Controllers
         public IDriverServices _driverServices;
         public ICarServices _carServices;
         public IBusinessUnitSerivces _businessUnitServices;
-        public ITripServices _tripServices;
+        public ITicketCarServices _ticketCarServices;
         public BookingCarController(IMapper mapper, IEmployeeServices employeeServices, ITicketSerivces ticketSerivces,
             IDriverServices driverServices, ICarServices carServices, IBusinessUnitSerivces businessUnitSerivces,
-            ITripServices tripServices)
+            ITicketCarServices ticketCarServices)
         {
             _mapper = mapper;
             _employeeServices = employeeServices;
@@ -34,7 +34,7 @@ namespace bkc_backend.Controller.Controllers
             _driverServices = driverServices;
             _carServices = carServices;
             _businessUnitServices = businessUnitSerivces;
-            _tripServices = tripServices;
+            _ticketCarServices = ticketCarServices;
         }
         [Route("api/employees/{name}")]
         [HttpGet]
@@ -63,7 +63,7 @@ namespace bkc_backend.Controller.Controllers
         {
             var ticket = _mapper.Map<Ticket>(ticketUpdateRequest);
             var isSuccess = _ticketSerivces.UpdateTicket(ticket);
-            return Ok();
+            return Ok(ticket);
         }
 
         [Route("api/tickets/")]
@@ -72,15 +72,21 @@ namespace bkc_backend.Controller.Controllers
         {
             if (selector == "EMPLOYEE")
             {
-                var tickets = _ticketSerivces.GetTicketsByEmployeeId(id);
+                var tickets = _ticketSerivces.GetTicketsByEmployeeId(Convert.ToString(id));
                 var ticketHistoriesResponse = _mapper.Map<List<TicketHistoryResponse>>(tickets);
                 return Ok(ticketHistoriesResponse);
             }
             else if (selector == "BU")
             {
-                var tickets = _ticketSerivces.GetTicketsByBuId(id);
+                var tickets = _ticketSerivces.GetTicketsByBuId(Convert.ToString(id));
                 var ticketHistoriesResponse = _mapper.Map<List<TicketHistoryResponse>>(tickets);
                 return Ok(ticketHistoriesResponse);
+            }
+            else if(selector == "TICKETID")
+            {
+                var ticket = _ticketSerivces.GetTicketById(Convert.ToInt32(id));
+                var ticketResponse = _mapper.Map<TicketHistoryResponse>(ticket);
+                return Ok(ticketResponse);
             }
             else return BadRequest();
         }
@@ -138,7 +144,8 @@ namespace bkc_backend.Controller.Controllers
         public IActionResult UpdateCar([FromBody] CarRequest carRequest)
         {
             var car = _mapper.Map<Car>(carRequest);
-            _carServices.UpdateCar(car);
+            //_carServices.UpdateCar(car);
+            _carServices.Update(car);
             return Ok();
         }
         [Route("api/cars/")]
@@ -199,16 +206,40 @@ namespace bkc_backend.Controller.Controllers
             var bus = _businessUnitServices.GetBusinessUnits();
             return Ok(bus);
         }
-
-        [Route("api/trips/{isFinish}")]
-        [HttpGet]
-        public IActionResult GetTripsByIsFinish(bool isFinish)
+        
+        [Route("api/ticket-car")]
+        [HttpPost]
+        public IActionResult AddTicketCar([FromBody] TicketCarRequest ticketCarRequest)
         {
-            var trips = _tripServices.GetTripsByIsFinish(isFinish);
-            var tripResponses = _mapper.Map<List<TripResponse>>(trips);
-            return Ok(tripResponses);
+            var ticketCar = _mapper.Map<TicketCar>(ticketCarRequest);
+            _ticketCarServices.Add(ticketCar);
+            return Ok(ticketCar);
         }
 
+        [Route("api/ticket-car")]
+        [HttpPut]
+        public IActionResult UpdateTicketCar([FromBody] TicketCarRequest ticketCarRequest)
+        {
+            var ticketCar = _mapper.Map<TicketCar>(ticketCarRequest);
+            _ticketCarServices.Update(ticketCar);
+            return Ok();
+        }
+        [Route("api/ticket-car/{ticketId}")]
+        [HttpGet]
+        public IActionResult GetTicketCarsByTicketId(int ticketId)
+        {
+            var ticketCars = _ticketCarServices.GetTicketCarsByTicketId(ticketId);
+            var ticketCarResponses = _mapper.Map<List<TicketCarResponse>>(ticketCars);
+            return Ok(ticketCarResponses);
+        }
+        [Route("api/ticket-car")]
+        [HttpDelete]
+        public IActionResult DeleteTicketCar([FromBody] TicketCarRequest ticketCarRequest)
+        {
+            var ticketCar = _mapper.Map<TicketCar>(ticketCarRequest);
+            _ticketCarServices.Remove(ticketCar);
+            return Ok();
+        }
     }
 
 }

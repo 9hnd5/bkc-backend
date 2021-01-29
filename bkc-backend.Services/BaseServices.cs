@@ -64,8 +64,8 @@ namespace bkc_backend.Services
 
         public void Update(T entity)
         {
+            _entity.Update(entity);
             _context.SaveChanges();
-            throw new NotImplementedException();
         }
     }
 }

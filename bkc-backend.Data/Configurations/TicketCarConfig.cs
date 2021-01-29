@@ -9,17 +9,19 @@ using System.Threading.Tasks;
 
 namespace bkc_backend.Data.Configurations
 {
-    public class TicketTripConfig : IEntityTypeConfiguration<TicketTrip>
+    public class TicketCarConfig : IEntityTypeConfiguration<TicketCar>
     {
-        public void Configure(EntityTypeBuilder<TicketTrip> builder)
+        public void Configure(EntityTypeBuilder<TicketCar> builder)
         {
-            builder.ToTable("BKC_TicketTrip");
+            builder.ToTable("BKC_TicketCar");
             builder.HasKey(x => x.Id);
-            builder.Property<int>(x => x.Id).ValueGeneratedOnAdd();
-            builder.Property<int>(x => x.TicketId);
-            builder.Property<int>(x => x.TripId);
+            builder.Property(x => x.Id).ValueGeneratedOnAdd();
+
+            builder.Property(x => x.TicketId);
             builder.Ignore(x => x.Ticket);
-            builder.Ignore(x => x.Trip);
+
+            builder.Property(x => x.CarId);
+            builder.Ignore(x => x.Car);
         }
     }
 }

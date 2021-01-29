@@ -18,6 +18,8 @@ namespace bkc_backend.Data.Entities
         public string Status { get; set; }
         public bool IsBooked { get; set; }
         public string CurrentLocation { get; set; }
+
+        public List<TicketCar> TicketCars { get; set; }
         public Driver Driver { get; set; }
     }
 }

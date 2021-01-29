@@ -23,9 +23,9 @@ namespace bkc_backend.Api.ViewModel.Response
         public string ToLocation { get; set; }
         public int TotalParticipant { get; set; }
         public string ReasonBooking { get; set; }
-        public string ApproverName { get; set; }
-        public string ApproverId { get; set; }
-        public string ApproveDate { get; set; }
+        public string HandlerName { get; set; }
+        public string HandlerId { get; set; }
+        public string HandledDate { get; set; }
         public string NoteByApprover { get; set; }
         public string Status { get; set; }
         public List<LocationHistoryResponse> Locations { get; set; }

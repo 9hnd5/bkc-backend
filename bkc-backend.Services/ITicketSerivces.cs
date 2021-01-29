@@ -13,6 +13,7 @@ namespace bkc_backend.Services
         public bool AddTicket(Ticket ticket);
         public bool UpdateTicket(Ticket ticket);
         public List<Ticket> GetTicketsByEmployeeId(string employeeId);
+        public Ticket GetTicketById(int id);
         public bool RemoveTicketById(int ticketId);
         public List<Ticket> GetTicketsByBuId(string buId);
     }
@@ -75,10 +76,10 @@ namespace bkc_backend.Services
             var ticket = GetById(ticketId);
             Remove(ticket);
             var locations = _locationServices.GetLocationsByTicketId(ticketId);
-            foreach(var location in locations)
+            foreach (var location in locations)
             {
                 _locationServices.Remove(location);
-                foreach(var participant in location.Participants)
+                foreach (var participant in location.Participants)
                 {
                     _participantServices.Remove(participant);
                 }
@@ -116,6 +117,9 @@ namespace bkc_backend.Services
                     ticketEntity.TotalParticipant = ticket.TotalParticipant;
                     ticketEntity.ReasonBooking = ticket.ReasonBooking;
                     ticketEntity.Status = ticket.Status;
+                    ticketEntity.HandledDate = ticket.HandledDate;
+                    ticketEntity.HandlerId = ticket.HandlerId;
+                    ticketEntity.HandlerName = ticket.HandlerName;
 
 
                     var locationsEntity = _locationServices.GetLocationsByTicketId(ticket.Id);
@@ -130,7 +134,7 @@ namespace bkc_backend.Services
                         location.TicketId = ticket.Id;
                         _locationServices.Add(location);
                         _context.SaveChanges();
-                        foreach(var participant in location.Participants)
+                        foreach (var participant in location.Participants)
                         {
                             participant.LocationId = location.Id;
                             _participantServices.Add(participant);
@@ -138,7 +142,7 @@ namespace bkc_backend.Services
                     }
                     var relatedPeoplesEntity = _relatedPeopleServices.GetRelatedPeoplesByTicketId(ticket.Id);
                     _relatedPeopleServices.RemoveRange(relatedPeoplesEntity);
-                    foreach(var relatedPeople in ticket.RelatedPeoples)
+                    foreach (var relatedPeople in ticket.RelatedPeoples)
                     {
                         relatedPeople.TicketId = ticket.Id;
                         _relatedPeopleServices.Add(relatedPeople);
@@ -160,19 +164,33 @@ namespace bkc_backend.Services
         public List<Ticket> GetTicketsByBuId(string buId)
         {
             var tickets = _context.Tickets.Where(x => x.EmployeeBuId == buId && x.Status != "DRAFT").ToList();
-            foreach(var ticket in tickets)
+            foreach (var ticket in tickets)
             {
                 var relatedPeoples = _relatedPeopleServices.GetRelatedPeoplesByTicketId(ticket.Id);
                 ticket.RelatedPeoples = relatedPeoples;
                 var locations = _locationServices.GetLocationsByTicketId(ticket.Id);
                 ticket.Locations = locations;
-                foreach(var location in locations)
+                foreach (var location in locations)
                 {
                     var participants = _participantServices.GetParticipantsByLocationId(location.Id);
                     location.Participants = participants;
                 }
             }
             return tickets;
+        }
+        public Ticket GetTicketById(int id)
+        {
+            var ticket = _context.Tickets.Where(x => x.Id == id).FirstOrDefault();
+            var relatedPeoples = _relatedPeopleServices.GetRelatedPeoplesByTicketId(ticket.Id);
+            ticket.RelatedPeoples = relatedPeoples;
+            var locations = _locationServices.GetLocationsByTicketId(ticket.Id);
+            ticket.Locations = locations;
+            foreach (var location in locations)
+            {
+                var participants = _participantServices.GetParticipantsByLocationId(location.Id);
+                location.Participants = participants;
+            }
+            return ticket;
         }
     }
 }

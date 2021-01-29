@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace bkc_backend.Data.Entities
 {
-    public class TicketTrip: BaseEntity
+    public class TicketCar: BaseEntity
     {
         public int TicketId { get; set; }
         public Ticket Ticket { get; set; }
 
-        public int TripId { get; set; }
-        public Trip Trip { get; set; }
+        public int CarId { get; set; }
+        public Car Car { get; set; }
     }
 }
