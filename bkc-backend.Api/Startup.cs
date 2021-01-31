@@ -77,9 +77,10 @@ namespace bkc_backend.Api
             services.AddScoped<IParticipantServices, ParticipantServices>();
             services.AddScoped<IDriverServices, DriverServices>();
             services.AddScoped<ICarServices, CarServices>();
-            services.AddScoped<IBusinessUnitSerivces, BusinessUnitServices>();
+            services.AddScoped<IBusinessUnitServices, BusinessUnitServices>();
             services.AddScoped<IRazorViewToStringRenderer, RazorViewToStringRenderer>();
             services.AddScoped<ITicketCarServices, TicketCarServices>();
+            services.AddScoped<ISendMailServices, SendMailServices>();
             
             var key = Encoding.UTF8.GetBytes(Configuration["Key"]);
             services.AddAuthentication(x =>

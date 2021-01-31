@@ -16,7 +16,6 @@ namespace bkc_backend.Data.Entities
         public string BuId { get; set; }
         public string BuName { get; set; }
         public string Status { get; set; }
-        public bool IsBooked { get; set; }
         public string CurrentLocation { get; set; }
 
         public List<TicketCar> TicketCars { get; set; }

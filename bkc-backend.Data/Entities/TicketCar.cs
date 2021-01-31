@@ -13,5 +13,12 @@ namespace bkc_backend.Data.Entities
 
         public int CarId { get; set; }
         public Car Car { get; set; }
+
+        public bool IsFinish { get; set; }
+        public string Type { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+        public string NoteForDriver { get; set; }
+
     }
 }

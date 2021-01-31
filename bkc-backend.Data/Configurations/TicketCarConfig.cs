@@ -16,6 +16,11 @@ namespace bkc_backend.Data.Configurations
             builder.ToTable("BKC_TicketCar");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
+            builder.Property(x => x.IsFinish);
+            builder.Property(x => x.Type).HasColumnType("nvarchar(40)");
+            builder.Property(x => x.StartDate).HasColumnType("nvarchar(20)");
+            builder.Property(x => x.EndDate).HasColumnType("nvarchar(20)");
+            builder.Property(x => x.NoteForDriver).HasColumnType("nvarchar(200)");
 
             builder.Property(x => x.TicketId);
             builder.Ignore(x => x.Ticket);

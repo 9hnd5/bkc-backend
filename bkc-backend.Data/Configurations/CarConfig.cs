@@ -23,7 +23,6 @@ namespace bkc_backend.Data.Configurations
             builder.Property<string>(x => x.BuId).HasColumnType("nvarchar(100)");
             builder.Property<string>(x => x.BuName).HasColumnType("nvarchar(100)");
             builder.Property<string>(x => x.Status).HasColumnType("nvarchar(50)");
-            builder.Property<bool>(x => x.IsBooked);
             builder.Property<string>(x => x.Manufactured).HasColumnType("nvarchar(100)");
             builder.Property<string>(x => x.Name).HasColumnType("nvarchar(50)");
 

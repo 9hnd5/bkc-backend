@@ -10,5 +10,7 @@ namespace bkc_backend.Api.ViewModel.Response
         public int Id { get; set; }
         public int TicketId { get; set; }
         public int CarId { get; set; }
+        public bool IsFinish { get; set; }
+        public string Type { get; set; }
     }
 }

@@ -16,6 +16,7 @@ namespace bkc_backend.Services
         public Ticket GetTicketById(int id);
         public bool RemoveTicketById(int ticketId);
         public List<Ticket> GetTicketsByBuId(string buId);
+        public List<Ticket> GetTicksByCarId(int carId);
     }
 
     public class TicketServices : BaseServices<Ticket>, ITicketSerivces
@@ -191,6 +192,38 @@ namespace bkc_backend.Services
                 location.Participants = participants;
             }
             return ticket;
+        }
+
+        public List<Ticket> GetTicksByCarId(int carId)
+        {
+            var tickets = (from ticket in _context.Tickets
+                           join ticketCar in _context.TicketCars on ticket.Id equals ticketCar.TicketId
+                           join car in _context.Cars on ticketCar.CarId equals car.Id
+                           where ticket.IsFinish == false && car.Id == carId
+                           group ticket by new
+                           {
+                               Id =ticket.Id,
+                               EmployeeId=ticket.EmployeeId,
+                               EmployeeName = ticket.EmployeeName,
+                               EmployeePhone = ticket.EmployeePhone,
+                               StartDate = ticket.StartDate,
+                               EndDate = ticket.EndDate,
+                               FromLocation = ticket.FromLocation,
+                               ToLocation = ticket.ToLocation
+
+                           } into g
+                           select new Ticket()
+                           {
+                               Id = g.Key.Id,
+                               EmployeeId = g.Key.EmployeeId,
+                               EmployeeName = g.Key.EmployeeName,
+                               EmployeePhone = g.Key.EmployeePhone,
+                               StartDate = g.Key.StartDate,
+                               EndDate = g.Key.EndDate,
+                               FromLocation = g.Key.FromLocation,
+                               ToLocation = g.Key.ToLocation,
+                           }).ToList();
+            return tickets;
         }
     }
 }

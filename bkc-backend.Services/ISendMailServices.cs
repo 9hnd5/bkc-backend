@@ -49,7 +49,7 @@ namespace bkc_backend.Services
 
                 foreach (var ccTo in mailContent.CCTos)
                 {
-                    coppies.Add(new MailboxAddress(_mailSettings.DisplayName, ccTo));
+                    coppies.Add(new MailboxAddress(_mailSettings.DisplayName, Convert.ToString(ccTo)));
                 }
             }
             email.Cc.AddRange(coppies);

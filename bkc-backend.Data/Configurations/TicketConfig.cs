@@ -24,6 +24,7 @@ namespace bkc_backend.Data.Configurations
             builder.Property<string>(x => x.EmployeeBuId).HasColumnType("nvarchar(100)");
             builder.Property<string>(x => x.EmployeeBuName).HasColumnType("nvarchar(100)");
             builder.Property<string>(x => x.EmployeeDepartment).HasColumnType("nvarchar(30)");
+            builder.Property<string>(x => x.EmployeeEmail).HasColumnType("nvarchar(50)");
             builder.Property<string>(x => x.CreateDate).HasColumnType("nvarchar(20)");
             builder.Property<string>(x => x.StartDate).HasColumnType("nvarchar(20)");
             builder.Property<string>(x => x.EndDate).HasColumnType("nvarchar(20)");

@@ -11,6 +11,7 @@ namespace bkc_backend.Services
     public interface ICarServices : IBaseServices<Car>
     {
         public List<Car> GetCarsByBuId(string buId);
+        public List<Car> GetAllCarByBuId(string buId);
         public List<Car> GetCarByDriverId(int driverId);
         public void UpdateCar(Car car);
     }
@@ -21,6 +22,11 @@ namespace bkc_backend.Services
 
         }
 
+        public List<Car> GetAllCarByBuId(string buId)
+        {
+            return _context.Cars.Where(x => x.BuId == buId).ToList();
+        }
+
         public List<Car> GetCarByDriverId(int driverId)
         {
             return null;
@@ -28,7 +34,10 @@ namespace bkc_backend.Services
 
         public List<Car> GetCarsByBuId(string buId)
         {
-            return _context.Cars.Where(x => x.BuId == buId).ToList();
+            var cars = (from car in _context.Cars
+                        where !_context.Drivers.Where(x => x.CarId != -1).Select(x => x.CarId).Contains(car.Id)
+                        select car).ToList();
+            return cars;
         }
 
         public void UpdateCar(Car car)

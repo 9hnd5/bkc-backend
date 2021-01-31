@@ -28,6 +28,7 @@ namespace bkc_backend.Api.ViewModel.Response
         public string HandledDate { get; set; }
         public string NoteByApprover { get; set; }
         public string Status { get; set; }
+        public bool IsFinish { get; set; }
         public List<LocationHistoryResponse> Locations { get; set; }
         public List<RelatedPeopleHistoryResponse> RelatedPeoples { get; set; }
     }

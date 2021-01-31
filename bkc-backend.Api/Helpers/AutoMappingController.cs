@@ -6,6 +6,7 @@ using AutoMapper;
 using bkc_backend.Api.ViewModel.Request;
 using bkc_backend.Api.ViewModel.Response;
 using bkc_backend.Data.Entities;
+using bkc_backend.RazorEmail.ViewModels;
 using bkc_backend.Services.EmployeeServices;
 
 namespace bkc_backend.Api.Helpers
@@ -15,6 +16,7 @@ namespace bkc_backend.Api.Helpers
         public AutoMappingController()
         {
             CreateMap<Ticket, TicketAddRequest>().ReverseMap();
+            CreateMap<Ticket, TicketResponse>().ReverseMap();
             CreateMap<Location, LocationAddRequest>().ReverseMap();
             CreateMap<RelatedPeople, RelatedPeopleAddRequest>().ReverseMap();
             CreateMap<Participant, ParticipantAddRequest>().ReverseMap();
@@ -36,6 +38,10 @@ namespace bkc_backend.Api.Helpers
 
             CreateMap<TicketCar, TicketCarRequest>().ReverseMap();
             CreateMap<TicketCar, TicketCarResponse>().ReverseMap();
+
+
+            CreateMap<Location, LocationResponse>().ReverseMap();
+            CreateMap<Location, LocationViewModel>().ReverseMap();
 
 
 

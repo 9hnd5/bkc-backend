@@ -13,12 +13,12 @@ namespace bkc_backend.Services
         public string Id { get; set; }
         public string Name { get; set; }
     }
-    public interface IBusinessUnitSerivces
+    public interface IBusinessUnitServices
     {
         public List<BusinessUnit> GetBusinessUnitsByName(string buName);
         public List<BusinessUnit> GetBusinessUnits();
     }
-    public class BusinessUnitServices : IBusinessUnitSerivces
+    public class BusinessUnitServices : IBusinessUnitServices
     {
         private IConfiguration _config;
         public BusinessUnitServices(IConfiguration config)

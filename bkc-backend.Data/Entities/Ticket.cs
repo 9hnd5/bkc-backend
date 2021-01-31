@@ -16,6 +16,7 @@ namespace bkc_backend.Data.Entities
         public string EmployeeBuId { get; set; }
         public string EmployeeBuName { get; set; }
         public string EmployeeDepartment { get; set; }
+        public string EmployeeEmail { get; set; }
         public string CreateDate { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }

@@ -1,47 +1,161 @@
 ﻿<!DOCTYPE html>
 <html>
+@model bkc_backend.RazorEmail.ViewModels.EmailNotifyViewModel
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <environment include="Development">
-        <link rel="stylesheet" href="~/Bootstrap/css/bootstrap.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="~/Bootstrap/css/bootstrap.min.css" />
-    </environment>
+    <style>
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            width: 50%;
+            table-layout: fixed;
+        }
+
+            table caption {
+                font-size: 1.5em;
+                margin: .5em 0 .75em;
+            }
+
+            table tr {
+                /*border: 1px solid #ddd;*/
+                padding: .35em;
+            }
+
+            table th,
+            table td {
+                padding: .625em;
+                text-align: left;
+                border: 1px solid;
+            }
+
+            table th {
+                font-size: .85em;
+                letter-spacing: .1em;
+                text-transform: uppercase;
+            }
+
+        @@media screen and (max-width: 600px) {
+            table {
+                border: 1px solid #ccc;
+                border-collapse: collapse;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                table-layout: fixed;
+            }
+
+                table caption {
+                    font-size: 1.5em;
+                    margin: .5em 0 .75em;
+                }
+
+                table tr {
+                    /*border: 1px solid #ddd;*/
+                    padding: .35em;
+                }
+
+                table th,
+                table td {
+                    padding: .625em;
+                    text-align: left;
+                    border: 1px solid;
+                }
+
+                table th {
+                    font-size: .85em;
+                    letter-spacing: .1em;
+                    text-transform: uppercase;
+                }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>THÔNG TIN CHO NGƯỜI ĐẶT</h1>
-    <table class="table table-bordered table-sm">
-        <thead>
-            <tr>
-                <th>STT</th>
-                <th>Tên</th>
-                <th>Phone</th>
-                <th>Address</th>
-            </tr>
-        </thead>
+    <p>
+        Dear <strong>Huy</strong>
+    </p>
+    <table>
         <tbody>
             <tr>
-                <td>1</td>
-                <td>Huy</td>
-                <td>1</td>
-                <td>Huy</td>
+                <td><strong>THÔNG TIN ĐIỀU XE</strong></td>
+                <td><strong>NGÀY: @Model.Booker.StartDate</strong></td>
+            </tr>
+            <tr>
+                <td>Tên Tài Xế - Số Điện Thoại</td>
+                <td>
+                    <ul>
+                        @foreach (var item in Model.Drivers)
+                        {
+                            <li>@item.DriverName - @item.DriverPhone</li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Biển Số</td>
+                <td>
+                    <ul>
+                        @foreach (var item in Model.Drivers)
+                        {
+                            <li>@item.CarNumber</li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Ngày Đi</td>
+                <td>@Model.Booker.StartDate</td>
+            </tr>
+            <tr>
+                <td>Điểm Xuất Phát - Điểm Đến</td>
+                <td>HCM - HN</td>
             </tr>
         </tbody>
     </table>
-    <h1>THÔNG TIN CHO TÀI XẾ</h1>
-    <ul>
-        <li>HCM</li>
-        <li>HN</li>
-    </ul>
-    <environment include="Development">
-        <script src="~/Bootstrap/js/jquery-3.3.1.js"></script>
-        <script src="~/Bootstrap/js/bootstrap.bundle.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="~/Bootstrap/js/jquery-3.3.1.min.js"></script>
-        <script src="~/Bootstrap/js/bootstrap.bundle.min.js"></script>
-    </environment>
+    @foreach (var item in Model.Drivers)
+    {
+        <table>
+            <tbody>
+                <tr>
+                    <td><strong>THÔNG TIN CHO TÀI XẾ</strong></td>
+                    <td><strong>NGÀY: @Model.Booker.StartDate.</strong></td>
+                </tr>
+                <tr>
+                    <td>Người Đặt Xe - Số Điện Thoại</td>
+                    <td>@Model.Booker.BookerName - @Model.Booker.BookerPhone</td>
+                </tr>
+                <tr>
+                    <td>Ngày Đón</td>
+                    <td>
+                        @Model.Booker.StartDate
+                    </td>
+                </tr>
+                <tr>
+                    <td>Địa Điểm Đón</td>
+                    <td>
+                        <ul>
+                            @foreach(var i in item.Locations)
+                            {
+                                <li>@i.Time - @i.Place </li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Số Người Trên Xe</td>
+                    <td>@Model.Booker.TotalParticipant</td>
+                </tr>
+                <tr>
+                    <td>Ghi Chú</td>
+                    <td>Không</td>
+                </tr>
+
+            </tbody>
+        </table>
+    }
+
 </body>
 </html>

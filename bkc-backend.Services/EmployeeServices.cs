@@ -62,6 +62,7 @@ namespace bkc_backend.Services.EmployeeServices
                         };
                     }
                     reader.Close();
+                    if (employee == null) return null;
                     var lineManager = GetEmployeeById(employee.LineManagerId);
                     if (lineManager == null) return employee;
                     employee.LineManagerName = lineManager.Name;
