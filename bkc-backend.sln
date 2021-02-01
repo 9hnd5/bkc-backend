@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bkc-backend.Services", "bkc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bkc-backend.Data", "bkc-backend.Data\bkc-backend.Data.csproj", "{5EBB0A54-C8A7-4FA2-9999-7D81398EEF45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bkc-backend.RazorEmail", "bkc-backend.RazorEmail\bkc-backend.RazorEmail.csproj", "{D86BC1BA-DF28-4AF6-BF28-461D05A76456}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bkc-backend.RazorEmail", "bkc-backend.RazorEmail\bkc-backend.RazorEmail.csproj", "{D86BC1BA-DF28-4AF6-BF28-461D05A76456}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bkc-backend.MobileApi", "bkc-backend.MobileApi\bkc-backend.MobileApi.csproj", "{F5A28EED-90E0-43BD-A090-00D7531E14EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D86BC1BA-DF28-4AF6-BF28-461D05A76456}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D86BC1BA-DF28-4AF6-BF28-461D05A76456}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D86BC1BA-DF28-4AF6-BF28-461D05A76456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5A28EED-90E0-43BD-A090-00D7531E14EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5A28EED-90E0-43BD-A090-00D7531E14EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5A28EED-90E0-43BD-A090-00D7531E14EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5A28EED-90E0-43BD-A090-00D7531E14EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
