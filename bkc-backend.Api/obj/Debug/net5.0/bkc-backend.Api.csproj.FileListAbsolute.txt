@@ -176,12 +176,6 @@ F:\Project\bkc-backend\bkc-backend.Api\obj\Debug\net5.0\bkc-backend.Api.genrunti
 D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\MailKit.dll
 D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\MimeKit.dll
 D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\BouncyCastle.Crypto.dll
-D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\Grpc.Core.dll
-D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\Grpc.Core.Api.dll
-D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\runtimes\linux-x64\native\libgrpc_csharp_ext.x64.so
-D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\runtimes\osx-x64\native\libgrpc_csharp_ext.x64.dylib
-D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\runtimes\win-x64\native\grpc_csharp_ext.x64.dll
-D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\runtimes\win-x86\native\grpc_csharp_ext.x86.dll
 D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\bkc-backend.Api.Views.dll
 D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\bkc-backend.Api.Views.pdb
 D:\Project\bkc-backend\bkc-backend.Api\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll

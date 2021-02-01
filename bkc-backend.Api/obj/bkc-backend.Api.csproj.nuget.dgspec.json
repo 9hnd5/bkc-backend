@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj": {}
+    "D:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj": {}
   },
   "projects": {
-    "F:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj": {
+    "D:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
+        "projectUniqueName": "D:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
         "projectName": "bkc-backend.Api",
-        "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
-        "packagesPath": "C:\\Users\\HuyNguyen\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\bkc-backend\\bkc-backend.Api\\obj\\",
+        "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Api\\bkc-backend.Api.csproj",
+        "packagesPath": "C:\\Users\\huy.ndinh\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\bkc-backend\\bkc-backend.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HuyNguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huy.ndinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "F:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj": {
-                "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj"
+              "D:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj": {
+                "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj"
               },
-              "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj": {
-                "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj"
+              "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj": {
+                "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj"
               }
             }
           }
@@ -50,10 +50,6 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[8.1.0, )"
-            },
-            "Grpc.Core": {
-              "target": "Package",
-              "version": "[2.35.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -78,21 +74,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj": {
+    "D:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj",
+        "projectUniqueName": "D:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj",
         "projectName": "bkc-backend.Data",
-        "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj",
-        "packagesPath": "C:\\Users\\HuyNguyen\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\bkc-backend\\bkc-backend.Data\\obj\\",
+        "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj",
+        "packagesPath": "C:\\Users\\huy.ndinh\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\bkc-backend\\bkc-backend.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HuyNguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huy.ndinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -150,21 +146,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj": {
+    "D:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj",
+        "projectUniqueName": "D:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj",
         "projectName": "bkc-backend.RazorEmail",
-        "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj",
-        "packagesPath": "C:\\Users\\HuyNguyen\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\obj\\",
+        "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\bkc-backend.RazorEmail.csproj",
+        "packagesPath": "C:\\Users\\huy.ndinh\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\bkc-backend\\bkc-backend.RazorEmail\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HuyNguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huy.ndinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -207,21 +203,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj": {
+    "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj",
+        "projectUniqueName": "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj",
         "projectName": "bkc-backend.Services",
-        "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj",
-        "packagesPath": "C:\\Users\\HuyNguyen\\.nuget\\packages\\",
-        "outputPath": "F:\\Project\\bkc-backend\\bkc-backend.Services\\obj\\",
+        "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Services\\bkc-backend.Services.csproj",
+        "packagesPath": "C:\\Users\\huy.ndinh\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\bkc-backend\\bkc-backend.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HuyNguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huy.ndinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -235,8 +231,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "F:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj": {
-                "projectPath": "F:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj"
+              "D:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj": {
+                "projectPath": "D:\\Project\\bkc-backend\\bkc-backend.Data\\bkc-backend.Data.csproj"
               }
             }
           }
@@ -279,7 +275,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
